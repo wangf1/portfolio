@@ -1,5 +1,3 @@
-// Copied from https://ui.aceternity.com/components/spotlight
-
 import { cn } from "@/lib/utils";
 
 type SpotlightProps = {
