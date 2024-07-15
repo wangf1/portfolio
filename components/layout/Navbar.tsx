@@ -1,4 +1,5 @@
 "use client";
+import { ThemeSwitcher } from "@/components/common/ThemeSwitcher";
 import { cn } from "@/lib/utils";
 import { Mail, PencilRuler, UserRoundPen } from "lucide-react";
 import Link from "next/link";
@@ -8,7 +9,7 @@ const links = [
   { name: "About Me", href: "/about", icon: UserRoundPen },
   {
     name: "Projects",
-    href: "/projects",
+    href: "/my-projects",
     icon: PencilRuler,
   },
   { name: "Contact", href: "/contact", icon: Mail },
@@ -18,7 +19,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center justify-center w-full gap-4 p-4">
+    <nav className="flex items-center justify-center w-full gap-4 p-4r">
       {links.map((link) => {
         const LinkIcon = link.icon;
         return (
@@ -38,11 +39,12 @@ export default function Navbar() {
               }
             )}
           >
-            <LinkIcon className="w-6" />
+            <LinkIcon className="w-6 text-gray-600" />
             <p className="hidden md:block">{link.name}</p>
           </Link>
         );
       })}
+      <ThemeSwitcher />
     </nav>
   );
 }
