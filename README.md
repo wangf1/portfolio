@@ -14,8 +14,6 @@ I prefer to use Next.js for backend implementation, but I might also consider Dj
 First, run the development server:
 
 ```bash
-cd modern_frontend
-
 npm run dev
 # or
 bun dev
