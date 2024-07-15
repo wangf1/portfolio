@@ -29,10 +29,6 @@ const Background = () => {
   }
   const spotlightColor = currentTheme === "dark" ? "white" : "#57d0f8";
 
-  const sharedStyle = `dark:[mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] 
-        opacity-70 dark:opacity-100`;
-
-  // Render a placeholder or null until the theme is loaded
   if (!isThemeLoaded) {
     return null;
   }
@@ -49,17 +45,17 @@ const Background = () => {
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill={spotlightColor}
       />
-      {/* Radial gradient for the container to give a faded look */}
       <div
         className={`absolute inset-0 flex items-center justify-center
-        bg-background dark:bg-grid-white/[0.3] bg-grid-black/[0.3]
-        ${sharedStyle}`}
+        bg-background dark:bg-grid-white/[0.2] bg-grid-black/[0.2]
+        dark:[mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] 
+        opacity-70 dark:opacity-100`}
       >
         {/* Radial gradient for the container to give a faded look */}
         <div
-          className={`absolute pointer-events-none inset-0 
-          flex items-center justify-center bg-background
-          ${sharedStyle}`}
+          className="absolute pointer-events-none inset-0 flex items-center 
+            justify-center bg-background
+            [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
         />
       </div>
     </div>
