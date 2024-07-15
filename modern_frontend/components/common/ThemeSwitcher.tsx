@@ -2,7 +2,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-react";
+import { MoonStar, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -16,7 +16,8 @@ export function ThemeSwitcher() {
 
   if (!mounted) return null;
 
-  const icon = theme === "dark" ? <Sun /> : <Moon />;
+  const icon =
+    theme === "dark" ? <Sun /> : <MoonStar className="text-gray-600" />;
 
   const onClick = () => {
     setTheme(theme === "dark" ? "light" : "dark");
