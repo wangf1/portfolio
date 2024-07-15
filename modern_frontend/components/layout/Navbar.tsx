@@ -7,11 +7,7 @@ import { usePathname } from "next/navigation";
 
 const links = [
   { name: "About Me", href: "/about_me", icon: UserRoundPen },
-  {
-    name: "Projects",
-    href: "/my_projects",
-    icon: PencilRuler,
-  },
+  { name: "Experience", href: "/experience", icon: PencilRuler },
   { name: "Contact", href: "/contact", icon: Mail },
 ];
 
@@ -19,8 +15,8 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center justify-between p-4">
-      <div className="flex items-center gap-4">
+    <nav className="flex p-4">
+      <div className="w-[90%] flex items-center justify-center gap-4 flex-grow">
         {links.map((link) => {
           const LinkIcon = link.icon;
           return (
@@ -46,7 +42,9 @@ export default function Navbar() {
           );
         })}
       </div>
-      <ThemeSwitcher />
+      <div className="w-[10%] ml-auto">
+        <ThemeSwitcher />
+      </div>
     </nav>
   );
 }

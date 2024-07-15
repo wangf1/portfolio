@@ -1,10 +1,41 @@
+"use client";
 import BackgroundImage from "@/assets/images/Background.png";
 import { Spotlight } from "@/components/ui/Spotlight";
+import { useTheme } from "next-themes";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const Background = () => {
+  const { theme } = useTheme();
+  const [systemTheme, setSystemTheme] = useState("");
+  const [isThemeLoaded, setIsThemeLoaded] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = () => {
+      setSystemTheme(mediaQuery.matches ? "dark" : "light");
+      setIsThemeLoaded(true); // Set theme loaded to true once the system theme is determined
+    };
+
+    handleChange(); // Set the initial state
+    mediaQuery.addEventListener("change", handleChange); // Add event listener for changes
+
+    return () => mediaQuery.removeEventListener("change", handleChange); // Cleanup event listener on unmount
+  }, [theme]);
+
+  let currentTheme = theme;
+  if (currentTheme !== "dark" && currentTheme !== "light") {
+    currentTheme = systemTheme;
+  }
+  const spotlightColor = currentTheme === "dark" ? "white" : "#57d0f8";
+
   const sharedStyle = `dark:[mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] 
         opacity-70 dark:opacity-100`;
+
+  // Render a placeholder or null until the theme is loaded
+  if (!isThemeLoaded) {
+    return null;
+  }
 
   return (
     <div className="absolute inset-0 overflow-hidden -z-50">
@@ -14,11 +45,14 @@ const Background = () => {
         className="absolute inset-0 m-auto rotate-[15deg] 
           opacity-50 blur-[1.5px]"
       />
-      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="gray" />
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill={spotlightColor}
+      />
       {/* Radial gradient for the container to give a faded look */}
       <div
         className={`absolute inset-0 flex items-center justify-center
-        bg-background dark:bg-grid-white/[0.2] bg-grid-black/[0.2]
+        bg-background dark:bg-grid-white/[0.3] bg-grid-black/[0.3]
         ${sharedStyle}`}
       >
         {/* Radial gradient for the container to give a faded look */}

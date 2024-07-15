@@ -20,3 +20,13 @@ npm run dev
 # or
 bun dev
 ```
+
+## Libraries Used
+
+### [Next.js](https://nextjs.org/)
+
+### [shadcn/ui](https://ui.shadcn.com/)
+
+### [Aceternity UI](https://ui.aceternity.com/)
+
+### See package.json for more details

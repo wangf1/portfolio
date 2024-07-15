@@ -1,24 +1,9 @@
-export default function AboutMe() {
+export default function Resume() {
   return (
-    <div className="max-w-4xl mx-auto p-6 shadow-md rounded-lg mt-10">
-      <h1 className="text-3xl font-bold mb-4">Mark Wang</h1>
-      <p className="text-lg mb-6">
-        Experienced software engineer specializing in complex enterprise
-        software development. Quick learner, proficient in various tech stacks.
-      </p>
-      <ul className="list-disc pl-5 mb-6">
-        <li>
-          <strong>Address:</strong> Calgary, Alberta (Flexible to relocate
-          within Canada)
-        </li>
-        <li>
-          <strong>Email:</strong> armstrong.wang2000@gmail.com
-        </li>
-        <li>
-          <strong>Phone:</strong> 403-xxx-xxxx
-        </li>
-      </ul>
-      <hr className="my-6" />
+    <div
+      className="max-w-4xl mx-auto p-6 rounded-lg mt-10
+        dark:shadow-gray-700 shadow-lg"
+    >
       <h2 className="text-2xl font-semibold mb-4">Skills</h2>
       <ul className="list-disc pl-5 mb-6">
         <li>
