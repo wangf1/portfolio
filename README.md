@@ -11,13 +11,16 @@ I prefer to use Next.js for backend implementation, but I might also consider Dj
 
 ## Getting Started
 
-First, run the development server:
+### Local
 
 ```bash
+npm install
 npm run dev
-# or
-bun dev
 ```
+
+### Remote
+
+[Host on Vercel Cloud](https://portfolio-wangf.vercel.app/)
 
 ## Libraries Used
 
