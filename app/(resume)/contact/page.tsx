@@ -1,5 +1,4 @@
-import Contact from "@/components/resume/Contact";
-import SelfIntroductionEssay from "@/components/resume/SelfIntroductionEssay";
+import Contact from "@/features/resume/Contact";
 
 export default function ContactPage() {
   return <Contact />;

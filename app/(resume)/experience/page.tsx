@@ -1,4 +1,4 @@
-import Resume from "@/components/resume/Resume";
+import Resume from "@/features/resume/Resume";
 
 export default function ExperiencePage() {
   return <Resume />;
