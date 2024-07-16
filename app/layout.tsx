@@ -1,9 +1,9 @@
 import { ThemeProvider } from "@/app/theme-provider";
 import Background from "@/components/common/Background";
 import Navbar from "@/components/layout/Navbar";
+import "@/css/tailwind.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

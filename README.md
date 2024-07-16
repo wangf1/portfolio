@@ -14,8 +14,12 @@ I prefer to use Next.js for backend implementation, but I might also consider Dj
 ### Local
 
 ```bash
-npm install
-npm run dev
+yarn
+
+# If on Windows:
+$env:PWD = $(Get-Location).Path
+
+yarn dev
 ```
 
 ### Remote
