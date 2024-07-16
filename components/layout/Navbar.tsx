@@ -1,13 +1,14 @@
 "use client";
 import { ThemeSwitcher } from "@/components/common/ThemeSwitcher";
 import { cn } from "@/lib/utils";
-import { Mail, PencilRuler, UserRoundPen } from "lucide-react";
+import { Mail, NotebookPen, PencilRuler, UserRoundPen } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
   { name: "About Me", href: "/about_me", icon: UserRoundPen },
   { name: "Experience", href: "/experience", icon: PencilRuler },
+  { name: "Blog", href: "/blog", icon: NotebookPen },
   { name: "Contact", href: "/contact", icon: Mail },
 ];
 

@@ -31,11 +31,10 @@ const SelfIntroductionEssay: React.FC = () => {
       </p>
       <p className="mb-6 leading-relaxed">
         I am deeply grateful to the Canadian people and government for their
-        diversity and inclusiveness, which offer me the opportunity to share and
-        uphold the same values and way of life. I am committed to working hard,
-        being self-sufficient, not a burden to society, and contributing to the
-        community, and giving back to the community in return for the
-        opportunity to live here.
+        commitment to diversity and inclusiveness, which allow me to share and
+        uphold these same values and way of life. I am dedicated to working
+        hard, being self-sufficient, and contributing to the community in return
+        for the opportunity to live here.
       </p>
       <p className="mb-6 leading-relaxed">
         I know where I come from, why I am here, and what I should do and enjoy.
