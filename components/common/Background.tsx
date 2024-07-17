@@ -39,7 +39,7 @@ const Background = () => {
         src={BackgroundImage}
         alt="Background Image"
         className="absolute inset-0 m-auto rotate-[15deg] 
-          opacity-50 blur-[1.5px]"
+          opacity-30 blur-[1.5px]"
       />
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
@@ -54,7 +54,7 @@ const Background = () => {
         <div
           className="absolute pointer-events-none inset-0 flex items-center 
             justify-center dark:bg-black bg-white
-            [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
+            [mask-image:radial-gradient(ellipse_at_center,transparent_1%,black)]"
         />
       </div>
     </div>
