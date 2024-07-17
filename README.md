@@ -26,12 +26,10 @@ yarn dev
 
 [Host on Vercel Cloud](https://portfolio-wangf.vercel.app/)
 
-## Libraries Used
+## Important Libraries and Code Used
 
-### [Next.js](https://nextjs.org/)
-
-### [shadcn/ui](https://ui.shadcn.com/)
-
-### [Aceternity UI](https://ui.aceternity.com/)
-
-### See package.json for more details
+- [Next.js](https://nextjs.org/): The core framework.
+- [Tailwind CSS](https://tailwindcss.com/): The CSS framework.
+- [shadcn/ui](https://ui.shadcn.com/): Essential UI components.
+- [Aceternity UI](https://ui.aceternity.com/): Beautiful backgrounds and animations.
+- [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog): Simplifies rendering markdown posts.
