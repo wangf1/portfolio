@@ -133,7 +133,7 @@ export default function Resume() {
       <ul className="list-disc pl-5 mb-6">
         <li>
           <a
-            href="https://www.linkedin.com/in/feng-wang-ba3736033"
+            href="https://www.linkedin.com/in/feng-wang-ba373633"
             className="text-blue-600 underline"
           >
             LinkedIn Profile
