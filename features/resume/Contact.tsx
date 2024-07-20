@@ -1,3 +1,5 @@
+import { LinkedinIcon, SquareArrowOutUpRightIcon } from "lucide-react";
+
 export default function Contact() {
   return (
     <div
@@ -16,13 +18,27 @@ export default function Contact() {
           <strong>Email:</strong>{" "}
           <a
             href="mailto:armstrong.wang2000@gmail.com"
-            className="text-blue-500 hover:underline"
+            className="text-blue-500 dark:text-blue-300 hover:underline"
           >
             armstrong.wang2000@gmail.com
           </a>
         </li>
         <li>
           <strong>Phone:</strong> 403-xxx-xxxx (Please email me first)
+        </li>
+        <li>
+          <div className="flex space-x-2 w-fit">
+            <strong>Social Media:</strong>
+            <a
+              href="https://www.linkedin.com/in/feng-wang-ba373633/"
+              target="_blank"
+              rel="noopener"
+              className=" flex text-blue-500 dark:text-blue-300 hover:underline"
+            >
+              <LinkedinIcon />
+              <SquareArrowOutUpRightIcon size={15} />
+            </a>
+          </div>
         </li>
       </ul>
     </div>

@@ -1,3 +1,5 @@
+import { SquareArrowOutUpRightIcon } from "lucide-react";
+
 export default function Resume() {
   return (
     <div
@@ -134,17 +136,25 @@ export default function Resume() {
         <li>
           <a
             href="https://www.linkedin.com/in/feng-wang-ba373633"
-            className="text-blue-600 underline"
+            target="_blank"
+            rel="noopener"
+            className="text-blue-500 dark:text-blue-300 hover:underline 
+              flex items-center  w-fit"
           >
             LinkedIn Profile
+            <SquareArrowOutUpRightIcon size={15} />
           </a>
         </li>
+
         <li>
           <a
             href="https://github.com/wangf1"
-            className="text-blue-600 underline"
+            target="_blank"
+            className="text-blue-500 dark:text-blue-300 hover:underline
+              flex items-center w-fit"
           >
             GitHub Profile
+            <SquareArrowOutUpRightIcon size={15} />
           </a>
         </li>
       </ul>
