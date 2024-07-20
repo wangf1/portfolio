@@ -87,7 +87,7 @@ export default function ListLayoutWithTags({
     initialDisplayPosts.length > 0 ? initialDisplayPosts : posts;
 
   return (
-    <div className="justify-center align-center">
+    <div className="justify-center">
       <div className="pb-6 pt-6">
         <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
           {title}
@@ -131,7 +131,7 @@ export default function ListLayoutWithTags({
             </ul>
           </div>
         </div>
-        <div>
+        <div className="lg:w-1/3 w-full">
           <ul>
             {displayPosts.map((post) => {
               const { path, date, title, summary, tags } = post;
