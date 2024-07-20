@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { fontFamily } from 'tailwindcss/defaultTheme';
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 import svgToDataUri from "mini-svg-data-uri";
 import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
@@ -7,14 +7,14 @@ import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColo
 const config = {
   darkMode: ["class"],
   content: [
-    './node_modules/pliny/**/*.js',
-    './app/**/*.{js,ts,jsx,tsx}',
-    './pages/**/*.{js,ts,tsx}',
-    './components/**/*.{js,ts,tsx}',
-    './layouts/**/*.{js,ts,tsx}',
-    './data/**/*.mdx',
-    './features/**/*.{ts,tsx}',
-	],
+    "./node_modules/pliny/**/*.js",
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,tsx}",
+    "./components/**/*.{js,ts,tsx}",
+    "./layouts/**/*.{js,ts,tsx}",
+    "./data/**/*.mdx",
+    "./features/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -26,13 +26,13 @@ const config = {
     },
     extend: {
       lineHeight: {
-        11: '2.75rem',
-        12: '3rem',
-        13: '3.25rem',
-        14: '3.5rem',
+        11: "2.75rem",
+        12: "3rem",
+        13: "3.25rem",
+        14: "3.5rem",
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        sans: ["var(--font-space-grotesk)", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -74,35 +74,35 @@ const config = {
         DEFAULT: {
           css: {
             a: {
-              color: theme('colors.primary.500'),
-              '&:hover': {
-                color: `${theme('colors.primary.600')}`,
+              color: theme("colors.primary.500"),
+              "&:hover": {
+                color: `${theme("colors.primary.600")}`,
               },
-              code: { color: theme('colors.primary.400') },
+              code: { color: theme("colors.primary.400") },
             },
-            'h1,h2': {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
+            "h1,h2": {
+              fontWeight: "700",
+              letterSpacing: theme("letterSpacing.tight"),
             },
             h3: {
-              fontWeight: '600',
+              fontWeight: "600",
             },
             code: {
-              color: theme('colors.indigo.500'),
+              color: theme("colors.indigo.500"),
             },
           },
         },
         invert: {
           css: {
             a: {
-              color: theme('colors.primary.500'),
-              '&:hover': {
-                color: `${theme('colors.primary.400')}`,
+              color: theme("colors.primary.500"),
+              "&:hover": {
+                color: `${theme("colors.primary.400")}`,
               },
-              code: { color: theme('colors.primary.400') },
+              code: { color: theme("colors.primary.400") },
             },
-            'h1,h2,h3,h4,h5,h6': {
-              color: theme('colors.gray.100'),
+            "h1,h2,h3,h4,h5,h6": {
+              color: theme("colors.gray.100"),
             },
           },
         },
@@ -114,6 +114,8 @@ const config = {
       },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        slipIn: "slipIn 0.5s ease-out",
+        focusIn: "focusIn 0.5s linear",
       },
       keyframes: {
         spotlight: {
@@ -126,14 +128,22 @@ const config = {
             transform: "translate(-50%,-40%) scale(1)",
           },
         },
+        slipIn: {
+          "0%": { transform: "translateX(-100%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+        focusIn: {
+          "0%": { transform: "scale(1.2)", opacity: "-.5" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
       },
     },
   },
   plugins: [
     addVariablesForColors,
-    require("tailwindcss-animate"), 
-    require('@tailwindcss/forms'), 
-    require('@tailwindcss/typography'),
+    require("tailwindcss-animate"),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
         {
@@ -157,17 +167,17 @@ const config = {
       );
     },
   ],
-} satisfies Config
+} satisfies Config;
 
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
- 
+
   addBase({
     ":root": newVars,
   });
 }
 
-export default config
+export default config;

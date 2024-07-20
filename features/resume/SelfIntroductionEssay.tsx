@@ -4,7 +4,7 @@ const SelfIntroductionEssay: React.FC = () => {
   return (
     <article
       className="max-w-2xl mx-auto p-8 rounded-lg
-      dark:shadow-gray-700 shadow-lg"
+      dark:shadow-gray-700 shadow-lg animate-focusIn"
     >
       <h1 className="text-4xl font-bold  mb-6 decoration-2">Who Am I?</h1>
       <p className=" mb-6 leading-relaxed">

@@ -4,7 +4,7 @@ export default function Resume() {
   return (
     <div
       className="max-w-4xl mx-auto p-6 rounded-lg mt-10
-        dark:shadow-gray-700 shadow-lg"
+        dark:shadow-gray-700 shadow-lg animate-slipIn"
     >
       <h2 className="text-2xl font-semibold mb-4 dark:text-blue-100 text-blue-800">
         Skills
