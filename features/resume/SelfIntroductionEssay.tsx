@@ -41,7 +41,7 @@ const SelfIntroductionEssay: React.FC = () => {
         I will never forget this journey!
       </p>
 
-      <h2 className="text-3xl font-semibold  mt-8 mb-4  decoration-2">
+      <h2 className="text-3xl font-semibold mt-8 mb-4 decoration-2">
         My Career Goals
       </h2>
       <ul className="list-disc list-inside space-y-3 mb-6 leading-relaxed">
@@ -50,17 +50,21 @@ const SelfIntroductionEssay: React.FC = () => {
           on frontend frameworks like ReactJS.
         </li>
         <li>
-          <strong>Explore and adopt</strong> new tech stacks beyond the Java
-          ecosystem, including TypeScript with Node.js, Python with Django, C#
-          with .NET Core, and Ruby on Rails.
+          <strong>Explore and integrate</strong> diverse tech stacks beyond the
+          Java ecosystem, including TypeScript with Node.js, Python with Django,
+          C# with .NET Core, and Ruby on Rails, etc.
         </li>
         <li>
-          <strong>Expand</strong> my expertise with leading cloud platforms such
-          as AWS and Azure.
+          <strong>Leverage and enhance</strong> my expertise in Java enterprise
+          development to drive innovation and deliver high-quality solutions.
+        </li>
+        <li>
+          <strong>Expand</strong> my proficiency with leading cloud platforms
+          such as AWS and Azure.
         </li>
         <li>
           <strong>Embrace relocation opportunities</strong> within Canada as
-          needed.
+          required.
         </li>
       </ul>
     </article>
