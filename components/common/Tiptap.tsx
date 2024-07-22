@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import "@/components/common/Tiptap.css";
 import { toast } from "@/components/ui/use-toast";
 import { useAppDispatch } from "@/lib/hooks";
+import { format } from "date-fns";
 
 interface TipTapProps {
   readonly?: boolean;
@@ -23,7 +24,7 @@ interface TipTapProps {
 const Tiptap = ({
   readonly = false,
   author = "Unknown Author",
-  date = new Date().toLocaleDateString(),
+  date = new Date().toISOString(),
   text,
   blogId,
 }: TipTapProps) => {
@@ -46,7 +47,7 @@ const Tiptap = ({
     if (editor && content) {
       editor.commands.setContent(content);
     }
-  }, [content]);
+  }, [content, editor]);
 
   function onAddComment() {
     if (!blogId) {
@@ -57,15 +58,24 @@ const Tiptap = ({
       });
       return;
     }
-    const comment = editor?.getHTML() ?? "";
+    const textContent = editor?.getText();
+    if (!textContent) {
+      toast({
+        title: "Error",
+        description: "comment is required",
+        variant: "destructive",
+      });
+      return;
+    }
     dispatch(
       addComment({
         author: "author",
-        text: comment,
+        text: editor?.getHTML() ?? "",
         blogId,
       })
     );
-    return setContent("");
+    //Cannot figure out how to clear the editor by binding useState, so just reset it
+    editor?.commands.setContent("");
   }
 
   return (
@@ -77,9 +87,11 @@ const Tiptap = ({
           text-gray-500 p-2"
         >
           <section>By: </section>
-          <section className="font-bold">{author}</section>
-          <section>Date:</section>
-          <section className="font-bold">{date}</section>
+          <section className="font-bold">{author}, </section>
+          <section>At:</section>
+          <section className="font-bold">
+            {format(date, "MMM. d, yyyy HH:mm:ss")}
+          </section>
         </footer>
       )}
       {shouldShowAddButton && (

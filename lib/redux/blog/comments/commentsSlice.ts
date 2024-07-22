@@ -22,12 +22,17 @@ const fetchComments = createAsyncThunk<BlogComment[], string>(
   }
 );
 
+interface AddCommentResponse {
+  addedComment: BlogComment;
+  deletedComment: BlogComment | null;
+}
+
 const addComment = createAsyncThunk<
-  BlogComment,
+  AddCommentResponse,
   { author: string; text: string; blogId: string }
 >("activities/updateComment", async ({ author, text, blogId }) => {
   const url = BASE_URL.replace("${blogId}", blogId);
-  const response = await axios.post<BlogComment>(url, { author, text });
+  const response = await axios.post<AddCommentResponse>(url, { author, text });
   return response.data;
 });
 
@@ -48,7 +53,14 @@ const commentsSlice = createSlice({
         state.status = "failed";
       })
       .addCase(addComment.fulfilled, (state, action) => {
-        state.blogComments.push(action.payload);
+        const addedComment = action.payload.addedComment;
+        const deletedComment = action.payload.deletedComment;
+        state.blogComments.push(addedComment);
+        if (deletedComment) {
+          state.blogComments = state.blogComments.filter(
+            (comment) => comment._id !== deletedComment._id
+          );
+        }
         toast({
           title: "Information",
           description: "Comment added successfully",

@@ -1,7 +1,5 @@
-// src/services/commentService.ts
-
 import connectToMongoDb from "@/lib/mongodb";
-import Comment from "@/src/blog/comments/commentModel";
+import BlogComment, { IComment } from "@/src/blog/comments/commentModel";
 
 interface CommentData {
   blogId: string;
@@ -11,16 +9,35 @@ interface CommentData {
 
 const getCommentsByBlogId = async (blogId: string) => {
   await connectToMongoDb();
-  return Comment.find({ blogId });
+  return BlogComment.find({ blogId });
 };
 
-const createComment = async (commentData: CommentData) => {
+const createComment = async (
+  commentData: CommentData
+): Promise<{
+  addedComment: IComment;
+  deletedComment: IComment;
+}> => {
   await connectToMongoDb();
-  const newComment = new Comment({
+  const newComment = new BlogComment({
     ...commentData,
-    date: new Date().toLocaleDateString(),
+    date: new Date().toISOString(),
   });
-  return newComment.save();
+  await newComment.save();
+
+  let oldestComment: any = null;
+  const totalComments = await BlogComment.countDocuments();
+  if (totalComments > 5) {
+    oldestComment = await BlogComment.findOne().sort({ date: 1 });
+    if (oldestComment !== null) {
+      await BlogComment.deleteOne({ _id: oldestComment._id });
+    }
+  }
+
+  return {
+    addedComment: newComment,
+    deletedComment: oldestComment,
+  };
 };
 
 export default {

@@ -5328,6 +5328,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "date-fns@npm:3.6.0"
+  checksum: 0daa1e9a436cf99f9f2ae9232b55e11f3dd46132bee10987164f3eebd29f245b2e066d7d7db40782627411ecf18551d8f4c9fcdf2226e48bb66545407d448ab7
+  languageName: node
+  linkType: hard
+
 "debounce@npm:^1.2.1":
   version: 1.2.1
   resolution: "debounce@npm:1.2.1"
@@ -12049,6 +12056,7 @@ __metadata:
     clsx: ^2.1.1
     contentlayer2: 0.4.6
     cross-env: ^7.0.3
+    date-fns: ^3.6.0
     dotenv: ^16.4.5
     esbuild: 0.20.2
     eslint: ^8.45.0
