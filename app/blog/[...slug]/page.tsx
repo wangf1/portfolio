@@ -129,7 +129,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           components={components}
           toc={post.toc}
         />
-        <Tiptap />
+        <Tiptap blogId={slug} />
       </Layout>
     </>
   );

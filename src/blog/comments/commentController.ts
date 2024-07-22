@@ -22,8 +22,8 @@ const createComment = async (req: NextRequest, blogId: string) => {
       return new Response("blogId is required", { status: 400 });
     }
 
-    const { author, comment } = await req.json();
-    if (!author || !comment) {
+    const { author, text } = await req.json();
+    if (!author || !text) {
       return new Response("authorName and commentBody are required", {
         status: 400,
       });
@@ -32,10 +32,11 @@ const createComment = async (req: NextRequest, blogId: string) => {
     const createdComment = await commentService.createComment({
       blogId,
       author,
-      text: comment,
+      text,
     });
     return Response.json(createdComment, { status: 201 });
   } catch (error) {
+    console.log(error);
     return Response.json({ error: "Error creating comment" }, { status: 500 });
   }
 };

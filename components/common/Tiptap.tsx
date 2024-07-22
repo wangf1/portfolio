@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { addComment } from "@/lib/redux/blog/comments/commentsSlice";
 import Placeholder from "@tiptap/extension-placeholder";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
@@ -8,12 +9,14 @@ import { MessageSquarePlusIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import "@/components/common/Tiptap.css";
+import { useAppDispatch } from "@/lib/hooks";
 
 interface TipTapProps {
   readonly?: boolean;
   author?: string;
   date?: string;
   comment?: string;
+  blogId: string;
 }
 
 const Tiptap = ({
@@ -21,8 +24,13 @@ const Tiptap = ({
   author = "Unknown Author",
   date = new Date().toLocaleDateString(),
   comment,
+  blogId,
 }: TipTapProps) => {
+  const shouldShowAuthorDate = readonly;
+  const shouldShowAddButton = !readonly;
+
   const [content, setContent] = useState<string | undefined>(comment);
+  const dispatch = useAppDispatch();
 
   const editor = useEditor({
     extensions: [
@@ -39,11 +47,15 @@ const Tiptap = ({
     }
   }, [content, editor]);
 
-  const shouldShowAuthorDate = readonly;
-  const shouldShowAddButton = !readonly;
-
   function onAddComment() {
     const comment = editor?.getHTML() ?? "";
+    dispatch(
+      addComment({
+        author: "author",
+        text: comment,
+        blogId,
+      })
+    );
     return setContent(comment);
   }
 
