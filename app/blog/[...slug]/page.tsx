@@ -2,7 +2,7 @@ import "css/prism.css";
 import "katex/dist/katex.css";
 
 import { components } from "@/components/MDXComponents";
-import Tiptap from "@/components/common/Tiptap";
+import BlogComments from "@/components/blog/comments/BlogComments";
 import siteMetadata from "@/data/siteMetadata";
 import PostBanner from "@/layouts/PostBanner";
 import PostLayout from "@/layouts/PostLayout";
@@ -129,7 +129,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           components={components}
           toc={post.toc}
         />
-        <Tiptap blogId={slug} />
+        <BlogComments blogId={post.slug} />
       </Layout>
     </>
   );

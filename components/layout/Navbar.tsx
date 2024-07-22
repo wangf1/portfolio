@@ -33,7 +33,7 @@ export default function Navbar() {
               transition-colors duration-300 ease-in-out`,
                 {
                   "bg-sky-100 text-blue-600 dark:bg-sky-900 dark:text-blue-400":
-                    pathname.startsWith(link.href),
+                    pathname?.startsWith(link.href),
                 }
               )}
             >

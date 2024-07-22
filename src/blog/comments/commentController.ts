@@ -22,12 +22,21 @@ const createComment = async (req: NextRequest, blogId: string) => {
       return new Response("blogId is required", { status: 400 });
     }
 
-    const { author, text } = await req.json();
+    let { author, text } = await req.json();
     if (!author || !text) {
       return new Response("authorName and commentBody are required", {
         status: 400,
       });
     }
+
+    // TODO: before sign up function available, use IP as the author name
+    const ip = req.ip || req.headers.get("x-real-ip");
+
+    // If the above methods don't work, you can try these fallbacks
+    const forwardedFor = req.headers.get("x-forwarded-for");
+    const clientIp = ip ?? forwardedFor?.split(",")[0] ?? "Unknown";
+
+    author = clientIp;
 
     const createdComment = await commentService.createComment({
       blogId,

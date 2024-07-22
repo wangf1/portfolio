@@ -4,12 +4,14 @@ interface IComment extends Document {
   blogId: string;
   text: string;
   author: string;
+  date: string;
 }
 
 const CommentSchema: Schema = new Schema({
   blogId: { type: String, required: true },
   text: { type: String, required: true },
   author: { type: String, required: true },
+  date: { type: String, required: true },
 });
 
 const Comment =

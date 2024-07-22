@@ -16,7 +16,10 @@ const getCommentsByBlogId = async (blogId: string) => {
 
 const createComment = async (commentData: CommentData) => {
   await connectToMongoDb();
-  const newComment = new Comment(commentData);
+  const newComment = new Comment({
+    ...commentData,
+    date: new Date().toLocaleDateString(),
+  });
   return newComment.save();
 };
 

@@ -9,27 +9,28 @@ import { MessageSquarePlusIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import "@/components/common/Tiptap.css";
+import { toast } from "@/components/ui/use-toast";
 import { useAppDispatch } from "@/lib/hooks";
 
 interface TipTapProps {
   readonly?: boolean;
   author?: string;
   date?: string;
-  comment?: string;
-  blogId: string;
+  text?: string;
+  blogId?: string;
 }
 
 const Tiptap = ({
   readonly = false,
   author = "Unknown Author",
   date = new Date().toLocaleDateString(),
-  comment,
+  text,
   blogId,
 }: TipTapProps) => {
   const shouldShowAuthorDate = readonly;
   const shouldShowAddButton = !readonly;
 
-  const [content, setContent] = useState<string | undefined>(comment);
+  const [content, setContent] = useState<string | undefined>(text);
   const dispatch = useAppDispatch();
 
   const editor = useEditor({
@@ -45,9 +46,17 @@ const Tiptap = ({
     if (editor && content) {
       editor.commands.setContent(content);
     }
-  }, [content, editor]);
+  }, [content]);
 
   function onAddComment() {
+    if (!blogId) {
+      toast({
+        title: "Error",
+        description: "blogId is required",
+        variant: "destructive",
+      });
+      return;
+    }
     const comment = editor?.getHTML() ?? "";
     dispatch(
       addComment({
@@ -56,7 +65,7 @@ const Tiptap = ({
         blogId,
       })
     );
-    return setContent(comment);
+    return setContent("");
   }
 
   return (
@@ -67,7 +76,7 @@ const Tiptap = ({
           className="w-full flex justify-end space-x-2
           text-gray-500 p-2"
         >
-          <section>Written by: </section>
+          <section>By: </section>
           <section className="font-bold">{author}</section>
           <section>Date:</section>
           <section className="font-bold">{date}</section>
