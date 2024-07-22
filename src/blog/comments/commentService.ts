@@ -4,14 +4,14 @@ import connectToMongoDb from "@/lib/mongodb";
 import Comment from "@/src/blog/comments/commentModel";
 
 interface CommentData {
-  postId: string;
+  blogId: string;
   text: string;
   author: string;
 }
 
-const getCommentsByPostId = async (postId: string) => {
+const getCommentsByBlogId = async (blogId: string) => {
   await connectToMongoDb();
-  return Comment.find({ postId });
+  return Comment.find({ blogId });
 };
 
 const createComment = async (commentData: CommentData) => {
@@ -21,6 +21,6 @@ const createComment = async (commentData: CommentData) => {
 };
 
 export default {
-  getCommentsByPostId,
+  getCommentsByBlogId,
   createComment,
 };

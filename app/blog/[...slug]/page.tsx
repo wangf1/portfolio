@@ -2,6 +2,7 @@ import "css/prism.css";
 import "katex/dist/katex.css";
 
 import { components } from "@/components/MDXComponents";
+import Tiptap from "@/components/common/Tiptap";
 import siteMetadata from "@/data/siteMetadata";
 import PostBanner from "@/layouts/PostBanner";
 import PostLayout from "@/layouts/PostLayout";
@@ -109,7 +110,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     };
   });
 
-  const Layout = layouts[post.layout || defaultLayout];
+  const Layout = layouts[post.layout ?? defaultLayout];
 
   return (
     <>
@@ -128,6 +129,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           components={components}
           toc={post.toc}
         />
+        <Tiptap />
       </Layout>
     </>
   );

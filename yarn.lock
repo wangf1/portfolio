@@ -3370,6 +3370,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tiptap/extension-placeholder@npm:^2.5.4":
+  version: 2.5.4
+  resolution: "@tiptap/extension-placeholder@npm:2.5.4"
+  peerDependencies:
+    "@tiptap/core": ^2.5.4
+    "@tiptap/pm": ^2.5.4
+  checksum: d283451f9b0d3f71e53544f551a557bec0a4bd7a2950f479f4a1bfde3e93754a223f4710e874373b35a74f93774e452e0a4b8e79b68c99500fad1cc9d064c257
+  languageName: node
+  linkType: hard
+
 "@tiptap/extension-strike@npm:^2.5.4":
   version: 2.5.4
   resolution: "@tiptap/extension-strike@npm:2.5.4"
@@ -11650,6 +11660,7 @@ __metadata:
     "@svgr/webpack": ^8.0.1
     "@tailwindcss/forms": ^0.5.7
     "@tailwindcss/typography": ^0.5.12
+    "@tiptap/extension-placeholder": ^2.5.4
     "@tiptap/pm": ^2.5.4
     "@tiptap/react": ^2.5.4
     "@tiptap/starter-kit": ^2.5.4

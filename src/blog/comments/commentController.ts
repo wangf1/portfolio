@@ -1,12 +1,12 @@
 import commentService from "@/src/blog/comments/commentService";
 import { NextRequest } from "next/server";
 
-const getComments = async (req: NextRequest, postId: string) => {
+const getComments = async (req: NextRequest, blogId: string) => {
   try {
-    if (!postId) {
-      return new Response("postId is required", { status: 400 });
+    if (!blogId) {
+      return new Response("blogId is required", { status: 400 });
     }
-    const comments = await commentService.getCommentsByPostId(postId);
+    const comments = await commentService.getCommentsByBlogId(blogId);
     return Response.json(comments);
   } catch (error) {
     console.log(error);
@@ -16,10 +16,10 @@ const getComments = async (req: NextRequest, postId: string) => {
   }
 };
 
-const createComment = async (req: NextRequest, postId: string) => {
+const createComment = async (req: NextRequest, blogId: string) => {
   try {
-    if (!postId) {
-      return new Response("postId is required", { status: 400 });
+    if (!blogId) {
+      return new Response("blogId is required", { status: 400 });
     }
 
     const { author, comment } = await req.json();
@@ -30,7 +30,7 @@ const createComment = async (req: NextRequest, postId: string) => {
     }
 
     const createdComment = await commentService.createComment({
-      postId,
+      blogId,
       author,
       text: comment,
     });

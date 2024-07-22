@@ -6,11 +6,11 @@ type Params = {
 };
 
 export async function GET(req: NextRequest, context: { params: Params }) {
-  const postId = context.params.id;
-  return commentController.getComments(req, postId);
+  const blogId = context.params.id;
+  return commentController.getComments(req, blogId);
 }
 
 export async function POST(req: NextRequest, context: { params: Params }) {
-  const postId = context.params.id;
-  return commentController.createComment(req, postId);
+  const blogId = context.params.id;
+  return commentController.createComment(req, blogId);
 }
