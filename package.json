@@ -13,6 +13,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@clerk/nextjs": "^5.2.4",
     "@headlessui/react": "1.7.19",
     "@next/bundle-analyzer": "14.2.3",
     "@radix-ui/react-toast": "^1.2.1",
