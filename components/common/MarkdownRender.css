@@ -1,0 +1,65 @@
+/* General styling for table */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 0.875em;
+  line-height: 1.7142857;
+}
+
+.prose thead {
+  border-bottom-width: 2px;
+  border-bottom-color: var(--tw-prose-th-borders);
+}
+
+.prose thead th {
+  color: var(--tw-prose-headings);
+  font-weight: 600;
+  text-align: left;
+  vertical-align: bottom;
+  padding: 0.5em;
+}
+
+.prose tbody tr {
+  border-bottom-width: 1px;
+  border-bottom-color: var(--tw-prose-td-borders);
+}
+
+.prose tbody tr:last-child {
+  border-bottom-width: 0;
+}
+
+.prose tbody td {
+  padding: 0.5em;
+  vertical-align: top;
+}
+
+.prose tfoot {
+  border-top-width: 2px;
+  border-top-color: var(--tw-prose-th-borders);
+}
+
+.prose tfoot td {
+  padding: 0.5em;
+  vertical-align: top;
+}
+
+/* Alternating row colors for better readability */
+.prose tbody tr:nth-child(odd) {
+  background-color: var(--tw-prose-td-borders);
+}
+
+/* Responsive table */
+.prose table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Additional styles for better visual appeal */
+.prose th,
+.prose td {
+  border: 1px solid var(--tw-prose-td-borders);
+  padding: 0.5em;
+}
