@@ -1,11 +1,18 @@
 import "@/css/tailwind.css";
+import { isAdmin } from "@/lib/auth/authorization";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 
-export default function AdminLayout({
+export default async function AdminLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const user = await currentUser();
+  if (!isAdmin(user)) {
+    return <div>Need Admin role to view this page.</div>;
+  }
+
   return (
     <div>
       <div>
