@@ -11,7 +11,7 @@ const initialState: BlogCommentState = {
   status: "idle",
 };
 
-const BASE_URL = "/api/blog/${blogId}/comments";
+const BASE_URL = "/api/blogs/${blogId}/comments";
 
 const fetchComments = createAsyncThunk<BlogComment[], string>(
   "comments/fetchComments",

@@ -15,6 +15,19 @@ const getBlogById = async (blogId: string) => {
   }
 };
 
+const getBlogs = async (skip: number, take: number) => {
+  try {
+    const blogs = await blogService.getBlogs(skip, take);
+    return Response.json(blogs);
+  } catch (error) {
+    console.log(error);
+    return new Response("Error fetching comments", {
+      status: 500,
+    });
+  }
+};
+
 export default {
   getBlogById,
+  getBlogs,
 };

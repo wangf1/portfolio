@@ -1,20 +1,10 @@
-import connectToMongoDb from "@/lib/mongodb";
-import { Blog } from "@/src/blog/blogTypes";
-
-const getBlogs = async (skip: number, take: number) => {
-  await connectToMongoDb();
-  // TODO implement
-  return [];
-};
-
-const getBlogById = async (blogId: string): Promise<Blog> => {
-  // TODO implement
-  await connectToMongoDb();
-  const content = `
-<div 
-  className="dark:text-lime-100 text-lime-950 text-lg 
-    shadow-xl shadow-gray-900 dark:shadow-gray-500 p-4"
->
+---
+title: Immigration Is Not an Easy Journey
+date: "2024-07-16"
+tags: ["Personal", "Stories", "Immigration"]
+draft: false
+summary: The challenges and choices of immigration. Why I decided to immigrate to Canada what I went through. Do I Regret It?
+---
 
 ## Immigration Is Not an Easy Journey
 
@@ -50,7 +40,7 @@ I wanted to see if I could get a job on my own through applications; secondly,
 many classmates didn’t even know I had immigrated. I didn’t want to explain this
 seemingly crazy decision of mid-life immigration to them.
 
-\`\`\`python
+```python
 import random
 from typing import List
 
@@ -63,36 +53,10 @@ def job_search() -> List[str]:
 
     print(responses)
     return responses
-\`\`\`
+```
 
 ## Do I Regret It?
 
 I do not regret it at all because I have a strong internal drive. I know where
 I come from, why I came, what I should do, and what I should enjoy.
 I will never forget it!
-
-</div>
-  `;
-
-  return {
-    _id: blogId,
-    content,
-    tags: ["Personal", "Stories", "Immigration"],
-    publishedDate: "2024-07-16",
-    summary: `The challenges and choices of immigration.
-      Why I decided to immigrate to Canada what I went through.
-      Do I Regret It?`,
-    title: "Immigration Is Not an Easy Journey",
-  };
-};
-
-const createBlog = async (content: string, tags: string[]) => {
-  await connectToMongoDb();
-  // TODO implement
-};
-
-export default {
-  getBlogs,
-  getBlogById,
-  createBlog,
-};

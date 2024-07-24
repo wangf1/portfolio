@@ -7,13 +7,21 @@ const initialState: BlogState = {
   status: "idle",
 };
 
-const BASE_URL = "/api/blog/${blogId}";
+const BASE_URL = "/api/blogs/";
 
 const fetchBlogById = createAsyncThunk<Blog, string>(
   "blogs/fetchBlogById",
   async (blogId) => {
-    const url = BASE_URL.replace("${blogId}", blogId);
+    const url = BASE_URL + blogId;
     const response = await axios.get<Blog>(url);
+    return response.data;
+  }
+);
+
+const fetchBlogs = createAsyncThunk<Blog[], void>(
+  "blogs/fetchBlogs",
+  async () => {
+    const response = await axios.get<Blog[]>(BASE_URL);
     return response.data;
   }
 );
@@ -42,6 +50,6 @@ const commentsSlice = createSlice({
   },
 });
 
-export { fetchBlogById };
+export { fetchBlogById, fetchBlogs };
 export const { clearSelectedBlog } = commentsSlice.actions;
 export default commentsSlice.reducer;

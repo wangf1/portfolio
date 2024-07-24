@@ -12,7 +12,6 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
   return (
     <article className="prose dark:prose-invert">
       <Markdown
-        children={content}
         remarkPlugins={[remarkGfm]}
         components={{
           code(props) {
@@ -21,7 +20,6 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
             return match ? (
               <SyntaxHighlighter
                 PreTag="div"
-                children={String(children).replace(/\n$/, "")}
                 language={match[1]}
                 style={codeStyle}
                 customStyle={{
@@ -29,7 +27,9 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
                   margin: "0",
                   background: "transparent",
                 }}
-              />
+              >
+                {String(children).replace(/\n$/, "")}
+              </SyntaxHighlighter>
             ) : (
               <code {...rest} className={className}>
                 {children}
@@ -37,7 +37,9 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
             );
           },
         }}
-      />
+      >
+        {content}
+      </Markdown>
     </article>
   );
 };
