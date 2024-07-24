@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+import blogsReducer from "@/lib/redux/blog/blogsSlice";
 import commentsReducer from "@/lib/redux/blog/comments/commentsSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       comments: commentsReducer,
+      blogs: blogsReducer,
     },
   });
 };
