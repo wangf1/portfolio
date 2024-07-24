@@ -1,3 +1,4 @@
+"use client";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { fetchBlogs } from "@/lib/redux/blog/blogsSlice";
 import { useEffect } from "react";

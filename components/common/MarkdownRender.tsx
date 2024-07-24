@@ -3,6 +3,7 @@ import { ClassAttributes, HTMLAttributes } from "react";
 import Markdown, { ExtraProps } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import codeStyle from "react-syntax-highlighter/dist/esm/styles/prism/vsc-dark-plus";
+import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 
 interface MarkdownRendererProps {
@@ -37,7 +38,11 @@ const Code = ({
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
   return (
     <article className="prose dark:prose-invert">
-      <Markdown remarkPlugins={[remarkGfm]} components={{ code: Code }}>
+      <Markdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
+        components={{ code: Code }}
+      >
         {content}
       </Markdown>
     </article>
