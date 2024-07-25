@@ -5,6 +5,7 @@ export interface Blog {
   summary: string;
   tags: string[];
   content: string;
+  isPinned?: boolean;
 }
 
 export interface BlogState {

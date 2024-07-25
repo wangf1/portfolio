@@ -1,4 +1,5 @@
 "use client";
+import { BLOG_V2_PATH } from "@/app/blog-v2/current_path";
 import { BlogSummaryCard } from "@/components/blog/BlogSummaryCard";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { fetchBlogs } from "@/lib/redux/blog/blogsSlice";
@@ -31,14 +32,19 @@ export default function BlogList() {
   });
 
   return (
-    <div>
-      {blogs.map((post) => {
-        return (
-          <>
-            <BlogSummaryCard key={post._id} blog={post} />
-          </>
-        );
-      })}
+    <div className="flex flex-col items-center animate-focusIn">
+      <div>
+        {blogs.map((post) => {
+          return (
+            <BlogSummaryCard
+              key={post._id}
+              blog={post}
+              parentPath={BLOG_V2_PATH}
+              className="max-w-3xl"
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

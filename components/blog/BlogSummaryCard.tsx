@@ -6,51 +6,58 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { format } from "date-fns";
+import { ArrowUpToLineIcon } from "lucide-react";
+import Link from "next/link";
 import * as React from "react";
 
-const bull = (
-  <Box
-    component="span"
-    // sx={{
-    //   display: "inline-block",
-    //   mx: "2px",
-    //   transform: "scale(0.8)",
-    //   color: "red",
-    // }}
-    className="inline-block mx-0.5 transform scale-75 text-red-500"
-  >
-    •
-  </Box>
-);
-
-const createCard = (blog: Blog) => (
+const createCard = (blog: Blog, parentPath: string) => (
   <React.Fragment>
-    <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-        {format(blog.date, "MMM. d, yyyy HH:mm:ss")}
-      </Typography>
-      <Typography variant="h5" component="div">
-        be{bull}nev{bull}o{bull}lent
+    <CardContent sx={{ pb: 0 }}>
+      <Box className="flex items-center space-x-2 pb-3" color="text.secondary">
+        <Typography sx={{ fontSize: 14 }}>
+          {format(blog.date, "MMM. d, yyyy HH:mm:ss")}
+        </Typography>
+        {blog.isPinned && <ArrowUpToLineIcon size="16" />}
+      </Box>
+      <Typography variant="h5" component="div" className="pb-3">
+        {blog.title}
       </Typography>
       <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        adjective
-      </Typography>
-      <Typography variant="body2">
-        well meaning and kindly.
-        <br />
-        {'"a benevolent smile"'}
+        {blog.summary}
       </Typography>
     </CardContent>
-    <CardActions>
-      <Button size="small">Learn More</Button>
+    <CardActions sx={{ pt: 0 }}>
+      <Link href={`${parentPath}/${blog._id}`} passHref>
+        <Button size="small">See More</Button>
+      </Link>
     </CardActions>
   </React.Fragment>
 );
 
-export function BlogSummaryCard({ blog }: Readonly<{ blog: Blog }>) {
+interface BlogSummaryCardProps {
+  blog: Blog;
+  className?: string;
+  parentPath: string;
+}
+
+export function BlogSummaryCard({
+  blog,
+  className,
+  parentPath,
+}: Readonly<BlogSummaryCardProps>) {
   return (
-    <Box sx={{ minWidth: 275 }}>
-      <Card variant="outlined">{createCard(blog)}</Card>
+    <Box sx={{ backgroundColor: "transparent" }} className={className}>
+      <Card
+        variant="elevation"
+        sx={{
+          backgroundColor: "transparent",
+          borderBottom: "2px solid",
+          borderColor: "divider",
+          borderRadius: "16px",
+        }}
+      >
+        {createCard(blog, parentPath)}
+      </Card>
     </Box>
   );
 }
