@@ -1,11 +1,11 @@
----
-title: Immigration Is Not an Easy Journey
-date: "2024-07-16"
-tags: ["Personal", "Stories", "Immigration"]
-draft: false
-summary: The challenges and choices of immigration. Why I decided to immigrate to Canada what I went through. Do I Regret It?
----
-
+export default {
+  _id: "my-immigration-story.ts",
+  title: "Immigration Is Not an Easy Journey",
+  date: "2024-07-16T14:30:00Z",
+  tags: ["Personal", "Stories", "Immigration"],
+  summary:
+    "The challenges and choices of immigration. Why I decided to immigrate to Canada and what I went through. Do I Regret It?",
+  content: `
 ## Immigration Is Not an Easy Journey
 
 Immigration is not an easy thing, especially for middle-aged people with
@@ -40,23 +40,26 @@ I wanted to see if I could get a job on my own through applications; secondly,
 many classmates didn’t even know I had immigrated. I didn’t want to explain this
 seemingly crazy decision of mid-life immigration to them.
 
-```python
+\`\`\`python
 import random
 from typing import List
 
 def job_search() -> List[str]:
-    applications: int = 100  # Number of job applications
-    responses: List[str] = []
-    for i in range(1, applications + 1):
-        if random.random() < 0.01:  # 1% chance of getting a positive response
-            responses.append(f"Received response for application {i}")
+applications: int = 100 # Number of job applications
+responses: List[str] = []
+for i in range(1, applications + 1):
+if random.random() < 0.01: # 1% chance of getting a positive response
+responses.append(f"Received response for application {i}")
 
     print(responses)
     return responses
-```
+
+\`\`\`
 
 ## Do I Regret It?
 
 I do not regret it at all because I have a strong internal drive. I know where
 I come from, why I came, what I should do, and what I should enjoy.
 I will never forget it!
+`,
+};

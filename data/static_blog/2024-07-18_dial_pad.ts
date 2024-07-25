@@ -1,11 +1,10 @@
----
-title: A small dial pad
-date: "2024-07-18"
-tags: ["React", "Programming", "Tailwind", "Redux"]
-draft: false
-summary: A small dial pad implemented with React, Tailwind CSS, and Redux.
----
-
+export default {
+  _id: "2024-07-18_dial_pad",
+  title: "A small dial pad",
+  date: "2024-07-18T19:11:08Z",
+  tags: ["React", "Programming", "Tailwind", "Redux"],
+  summary: "A small dial pad implemented with React, Tailwind CSS, and Redux.",
+  content: `
 ### Build a small UI use Web technology is interesting
 
 <div 
@@ -45,3 +44,5 @@ tailoring sample code to meet my own needs.
 />
 
 </div>
+`,
+};

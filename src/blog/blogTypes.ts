@@ -1,7 +1,7 @@
 export interface Blog {
   _id: string;
   title: string;
-  publishedDate: string;
+  date: string;
   summary: string;
   tags: string[];
   content: string;

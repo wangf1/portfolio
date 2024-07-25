@@ -9,8 +9,9 @@ interface BlogRendererProps {
   blogId: string;
 }
 
-export default function BlogRenderer({ blogId }: BlogRendererProps) {
+export default function BlogRenderer({ blogId }: Readonly<BlogRendererProps>) {
   const blog = useAppSelector((state) => state.blogs.selectedBlog);
+  const status = useAppSelector((state) => state.blogs.status);
 
   const dispatch = useAppDispatch();
 
@@ -18,15 +19,23 @@ export default function BlogRenderer({ blogId }: BlogRendererProps) {
     dispatch(fetchBlogById(blogId));
   }, [blogId]);
 
-  if (!blog) {
+  if (status === "loading") {
     return <div>Loading...</div>;
+  }
+
+  if (status === "failed") {
+    return <div>Failed to load blog, please try again.</div>;
+  }
+
+  if (!blog) {
+    return null;
   }
 
   return (
     <div className="prose dark:prose-invert">
       <h1 className="text-4xl text-center">{blog.title}</h1>
       <div className="text-right">
-        {format(blog.publishedDate, "MMM. d, yyyy HH:mm:ss")}
+        {format(blog.date, "MMM. d, yyyy HH:mm:ss")}
       </div>
       <hr />
       <div>

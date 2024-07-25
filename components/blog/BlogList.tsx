@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 export default function BlogList() {
   const blogs = useAppSelector((state) => state.blogs.blogs);
+  const status = useAppSelector((state) => state.blogs.status);
 
   const dispatch = useAppDispatch();
 
@@ -12,9 +13,21 @@ export default function BlogList() {
     dispatch(fetchBlogs());
   }, []);
 
-  if (!blogs) {
+  if (status === "loading") {
     return <div>Loading...</div>;
   }
+
+  if (status === "failed") {
+    return <div>Failed to load blog, please try again.</div>;
+  }
+
+  if (!blogs) {
+    return null;
+  }
+
+  blogs.map((blog) => {
+    console.log(blog);
+  });
 
   return <div>BlogList</div>;
 }

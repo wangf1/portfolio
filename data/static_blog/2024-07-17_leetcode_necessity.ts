@@ -1,11 +1,10 @@
----
-title: About Practicing on LeetCode
-date: "2024-07-17"
-tags: ["Thoughts", "Programming", "LeetCode"]
-draft: false
-summary: Should I do practice on LeetCode?
----
-
+export default {
+  _id: "2024-07-17_leetcode_necessity",
+  title: "About Practicing on LeetCode",
+  tags: ["Thoughts", "Programming", "LeetCode"],
+  date: "2024-07-17T14:30:00Z",
+  summary: "Should I do practice on LeetCode?",
+  content: `
 ### Is it Necessary for Programmers to Practice on LeetCode if Not Preparing for Interviews?
 
 <div 
@@ -34,3 +33,5 @@ Unfortunately, most SQL problems require a paid membership to access. In the fut
 />
 
 </div>
+`,
+};

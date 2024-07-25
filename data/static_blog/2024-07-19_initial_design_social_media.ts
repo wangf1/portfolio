@@ -1,8 +1,8 @@
----
-title: Design a social media app
-date: "2024-07-19"
-tags:
-  [
+export default {
+  _id: "2024-07-19_initial_design_social_media",
+  title: "Design a social media app",
+  date: "2024-07-19T22:15:21Z",
+  tags: [
     "Design",
     "Programming",
     "Social Media",
@@ -10,11 +10,9 @@ tags:
     "MySQL",
     "Redis",
     "Python",
-  ]
-draft: false
-summary: Design a social media app as volunteer back-end developer.
----
-
+  ],
+  summary: "Design a social media app as a volunteer back-end developer.",
+  content: `
 ### Can I design a social media app?
 
 <div 
@@ -54,7 +52,7 @@ is my first time attempting to design such a large-scale system from scratch.
 Let’s see how far I can go with this project. Wish me and this non-profit
 organization good luck.
 
-```sql
+\`\`\`sql
 Project *** {
     Note: '''
       Database schema for Full Social Media System
@@ -86,10 +84,12 @@ Table message{
   message_text text [default: ""]
   external_res_link text [note: "URL to the external resource"]
   external_res_type varchar(32) [note: "MIME type of the resource (e.g., 'image/png', 'video/mp4', 'application/pdf'"]
-  created_at timestamp [default: `now()`]
-  updated_at timestamp [default: `now()`]
+  created_at timestamp [default: \`now()\`]
+  updated_at timestamp [default: \`now()\`]
 }
 
-```
+\`\`\`
 
 </div>
+`,
+};

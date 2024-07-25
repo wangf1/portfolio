@@ -6,7 +6,7 @@ export default function BlogDetailsPage({
   params: { id: string };
 }>) {
   return (
-    <div className="flex justify-center pb-20">
+    <div className="flex justify-center pt-10 pb-20">
       <BlogRenderer blogId={params.id} />
     </div>
   );
