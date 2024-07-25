@@ -46,6 +46,17 @@ const commentsSlice = createSlice({
       .addCase(fetchBlogById.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+      })
+      .addCase(fetchBlogs.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchBlogs.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.blogs = action.payload;
+      })
+      .addCase(fetchBlogs.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
       });
   },
 });

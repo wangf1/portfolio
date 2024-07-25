@@ -1,4 +1,5 @@
 "use client";
+import { BlogSummaryCard } from "@/components/blog/BlogSummaryCard";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { fetchBlogs } from "@/lib/redux/blog/blogsSlice";
 import { useEffect } from "react";
@@ -29,5 +30,15 @@ export default function BlogList() {
     console.log(blog);
   });
 
-  return <div>BlogList</div>;
+  return (
+    <div>
+      {blogs.map((post) => {
+        return (
+          <>
+            <BlogSummaryCard key={post._id} blog={post} />
+          </>
+        );
+      })}
+    </div>
+  );
 }

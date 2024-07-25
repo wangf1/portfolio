@@ -1,10 +1,13 @@
 import StoreProvider from "@/app/StoreProvider";
-import { ThemeProvider } from "@/app/theme-provider";
+import { ThemeProvider as NextThemesProvider } from "@/app/theme-provider";
 import Background from "@/components/common/Background";
 import Navbar from "@/components/layout/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 import "@/css/tailwind.css";
+import { MUIThemeProvider } from "@/src/mui_theme/MUIThemeProvider";
 import { ClerkProvider } from "@clerk/nextjs";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -26,17 +29,21 @@ export default function RootLayout({
       <ClerkProvider>
         <html lang="en">
           <body className={inter.className}>
-            <ThemeProvider
+            <NextThemesProvider
               attribute="class"
               defaultTheme="dark"
               enableSystem
               disableTransitionOnChange
             >
-              <Background />
-              <Navbar />
-              {children}
-              <Toaster />
-            </ThemeProvider>
+              <AppRouterCacheProvider>
+                <MUIThemeProvider>
+                  <Background />
+                  <Navbar />
+                  {children}
+                  <Toaster />
+                </MUIThemeProvider>
+              </AppRouterCacheProvider>
+            </NextThemesProvider>
           </body>
         </html>
       </ClerkProvider>

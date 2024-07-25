@@ -1,7 +1,7 @@
 export default {
   _id: "my-immigration-story.ts",
   title: "Immigration Is Not an Easy Journey",
-  date: "2024-07-16T14:30:00Z",
+  date: "2024-07-16T14:41:08Z",
   tags: ["Personal", "Stories", "Immigration"],
   summary:
     "The challenges and choices of immigration. Why I decided to immigrate to Canada and what I went through. Do I Regret It?",
