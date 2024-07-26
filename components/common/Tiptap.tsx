@@ -79,7 +79,7 @@ const Tiptap = ({
   }
 
   return (
-    <div className="border border-gray-700 pl-4 rounded mt-6">
+    <div className="border border-gray-700 pl-4 rounded mt-6 p-4">
       <EditorContent editor={editor} />
       {shouldShowAuthorDate && (
         <footer
