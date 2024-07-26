@@ -1,6 +1,7 @@
 import type { User } from "@clerk/backend";
+import { UserResource } from "@clerk/types";
 
-const isAdmin = (user: User | null): boolean => {
+const isAdmin = (user: User | UserResource | null): boolean => {
   /*For real project, we need implement role setting function.
     For example, use user.id to check user's role against database*/
 

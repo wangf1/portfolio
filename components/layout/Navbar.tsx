@@ -1,7 +1,15 @@
 "use client";
 import { ThemeSwitcher } from "@/components/common/ThemeSwitcher";
+import { isAdmin } from "@/lib/auth/authorization";
 import { cn } from "@/lib/utils";
-import { Mail, NotebookPen, PencilRuler, UserRoundPen } from "lucide-react";
+import { useUser } from "@clerk/clerk-react";
+import {
+  FilePen,
+  Mail,
+  NotebookPen,
+  PencilRuler,
+  UserRoundPen,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -10,15 +18,31 @@ const links = [
   { name: "Experience", href: "/experience", icon: PencilRuler },
   { name: "Blog", href: "/blog-v2", icon: NotebookPen },
   { name: "Contact", href: "/contact", icon: Mail },
+  {
+    name: "Blog Editor",
+    href: "/admin/blog-editor",
+    icon: FilePen,
+    adminOnly: true,
+  },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
 
+  const { user, isLoaded } = useUser();
+
+  const filteredLinks = links.filter((link) => {
+    if (!link.adminOnly) {
+      return true;
+    } else {
+      return isLoaded && !!user && isAdmin(user);
+    }
+  });
+
   return (
     <nav className="flex p-4">
       <div className="w-[90%] flex items-center justify-center gap-4 flex-grow">
-        {links.map((link) => {
+        {filteredLinks.map((link) => {
           const LinkIcon = link.icon;
           return (
             <Link

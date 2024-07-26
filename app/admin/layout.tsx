@@ -15,20 +15,16 @@ export default async function AdminLayout({
   }
 
   return (
-    <div>
-      <div>
-        <header className="text-red-500">
-          There should be a 'User' button, but it's missing. I haven’t yet
-          identified the root cause.
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-        </header>
-      </div>
+    <>
+      <header className="flex justify-end mx-4">
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </header>
       {children}
-    </div>
+    </>
   );
 }
