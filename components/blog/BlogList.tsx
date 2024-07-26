@@ -3,7 +3,7 @@ import { BLOG_V2_PATH } from "@/app/blog-v2/current_path";
 import { BlogSummaryCard } from "@/components/blog/BlogSummaryCard";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { fetchBlogs } from "@/lib/redux/blog/blogsSlice";
-import { Box, Skeleton } from "@mui/material";
+import { Skeleton } from "@mui/material";
 import { useEffect } from "react";
 
 export default function BlogList() {
@@ -18,19 +18,20 @@ export default function BlogList() {
 
   if (status === "loading") {
     return (
-      <>
+      <div className="flex flex-col items-center animate-focusIn m-4">
         {Array.from({ length: 5 }).map((_, index) => (
-          <Box key={index} sx={{ marginBottom: 2 }}>
+          <div key={index} className="mb-2">
             <Skeleton
               key={index}
-              variant="rectangular"
-              width={210}
+              variant="rounded"
+              width={600}
               height={118}
-              className="animate-pulse"
+              animation="wave"
+              sx={{ borderRadius: "16px" }}
             />
-          </Box>
+          </div>
         ))}
-      </>
+      </div>
     );
   }
 
