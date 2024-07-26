@@ -1,4 +1,6 @@
-export default {
+import { Blog } from "@/src/blog/blogTypes";
+
+const blog: Blog = {
   _id: "2024-07-17_leetcode_necessity",
   title: "About Practicing on LeetCode",
   tags: ["Thoughts", "Programming", "LeetCode"],
@@ -35,3 +37,4 @@ Unfortunately, most SQL problems require a paid membership to access. In the fut
 </div>
 `,
 };
+export default blog;

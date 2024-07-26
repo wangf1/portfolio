@@ -1,4 +1,6 @@
-export default {
+import { Blog } from "@/src/blog/blogTypes";
+
+const blog: Blog = {
   _id: "2024-07-19_initial_design_social_media",
   title: "Design a social media app",
   date: "2024-07-19T22:15:21Z",
@@ -93,3 +95,4 @@ Table message{
 </div>
 `,
 };
+export default blog;

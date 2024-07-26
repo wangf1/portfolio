@@ -3,6 +3,7 @@ import { BLOG_V2_PATH } from "@/app/blog-v2/current_path";
 import { BlogSummaryCard } from "@/components/blog/BlogSummaryCard";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { fetchBlogs } from "@/lib/redux/blog/blogsSlice";
+import { Box, Skeleton } from "@mui/material";
 import { useEffect } from "react";
 
 export default function BlogList() {
@@ -16,7 +17,21 @@ export default function BlogList() {
   }, []);
 
   if (status === "loading") {
-    return null;
+    return (
+      <>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <Box key={index} sx={{ marginBottom: 2 }}>
+            <Skeleton
+              key={index}
+              variant="rectangular"
+              width={210}
+              height={118}
+              className="animate-pulse"
+            />
+          </Box>
+        ))}
+      </>
+    );
   }
 
   if (status === "failed") {

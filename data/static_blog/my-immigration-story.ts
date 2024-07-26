@@ -1,4 +1,6 @@
-export default {
+import { Blog } from "@/src/blog/blogTypes";
+
+const blog: Blog = {
   _id: "my-immigration-story",
   title: "Immigration Is Not an Easy Journey",
   date: "2024-07-16T14:41:08Z",
@@ -64,3 +66,5 @@ I come from, why I came, what I should do, and what I should enjoy.
 I will never forget it!
 `,
 };
+
+export default blog;

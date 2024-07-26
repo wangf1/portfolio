@@ -1,4 +1,6 @@
-export default {
+import { Blog } from "@/src/blog/blogTypes";
+
+const blog: Blog = {
   _id: "2024-07-18_dial_pad",
   title: "A small dial pad",
   date: "2024-07-18T19:11:08Z",
@@ -46,3 +48,5 @@ tailoring sample code to meet my own needs.
 </div>
 `,
 };
+
+export default blog;
