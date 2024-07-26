@@ -1,13 +1,7 @@
-import mongoose, { Document, Schema } from "mongoose";
+import { Blog as BlogType } from "@/src/blog/blogTypes";
+import mongoose, { Document, ObjectId, Schema } from "mongoose";
 
-interface IBlog extends Document {
-  title: string;
-  date: string;
-  summary: string;
-  tags: string[];
-  content: string;
-  isPinned?: boolean;
-}
+interface IBlog extends Document<ObjectId>, Omit<BlogType, "_id"> {}
 
 const BlogSchema: Schema = new Schema({
   title: { type: String, required: true },

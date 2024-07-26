@@ -8,9 +8,11 @@ export interface Blog {
   isPinned?: boolean;
 }
 
+export type BlogData = Omit<Blog, "_id" | "date">;
+
 export interface BlogState {
   blogs: Blog[];
   selectedBlog?: Blog;
-  status: "idle" | "loading" | "failed";
+  status: "idle" | "loading" | "succeeded" | "failed";
   error?: string;
 }

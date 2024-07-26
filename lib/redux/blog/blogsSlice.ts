@@ -1,4 +1,5 @@
-import { Blog, BlogState } from "@/src/blog/blogTypes";
+import { toast } from "@/components/ui/use-toast";
+import { Blog, BlogData, BlogState } from "@/src/blog/blogTypes";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -22,6 +23,14 @@ const fetchBlogs = createAsyncThunk<Blog[], void>(
   "blogs/fetchBlogs",
   async () => {
     const response = await axios.get<Blog[]>(BASE_URL);
+    return response.data;
+  }
+);
+
+const createBlog = createAsyncThunk<Blog, BlogData>(
+  "blogs/createBlog",
+  async (blog) => {
+    const response = await axios.post<Blog>(BASE_URL, blog);
     return response.data;
   }
 );
@@ -57,10 +66,26 @@ const commentsSlice = createSlice({
       .addCase(fetchBlogs.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+      })
+      .addCase(createBlog.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.blogs.push(action.payload);
+        toast({
+          title: "Success",
+          description: "Blog created successfully",
+          duration: 3000,
+        });
+      })
+      .addCase(createBlog.rejected, (state, action) => {
+        toast({
+          title: "Error",
+          description: "Something went wrong while creating the blog",
+          duration: 3000,
+        });
       });
   },
 });
 
-export { fetchBlogById, fetchBlogs };
+export { createBlog, fetchBlogById, fetchBlogs };
 export const { clearSelectedBlog } = commentsSlice.actions;
 export default commentsSlice.reducer;

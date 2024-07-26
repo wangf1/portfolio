@@ -1722,7 +1722,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.23.9, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7":
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.23.9, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7":
   version: 7.24.8
   resolution: "@babel/runtime@npm:7.24.8"
   dependencies:
@@ -4717,6 +4717,52 @@ __metadata:
     "@typescript-eslint/types": 7.2.0
     eslint-visitor-keys: ^3.4.1
   checksum: d9b11b52737450f213cea5c6e07e4672684da48325905c096ee09302b6b261c0bb226e1e350011bdf127c0cbbdd9e6474c905befdfa0a2118fc89ece16770f2b
+  languageName: node
+  linkType: hard
+
+"@uiw/copy-to-clipboard@npm:~1.0.12":
+  version: 1.0.17
+  resolution: "@uiw/copy-to-clipboard@npm:1.0.17"
+  checksum: 11e147841374cb9cb001d6500c4f27b5e136a8635bb63bf776a62e75dbf8d9a75503f47a80e17b65fe2f64fc9d7f9789d4e382b6fe0b5e5eed6718a8b8707138
+  languageName: node
+  linkType: hard
+
+"@uiw/react-markdown-preview@npm:^5.0.6":
+  version: 5.1.2
+  resolution: "@uiw/react-markdown-preview@npm:5.1.2"
+  dependencies:
+    "@babel/runtime": ^7.17.2
+    "@uiw/copy-to-clipboard": ~1.0.12
+    react-markdown: ~9.0.1
+    rehype-attr: ~3.0.1
+    rehype-autolink-headings: ~7.1.0
+    rehype-ignore: ^2.0.0
+    rehype-prism-plus: 2.0.0
+    rehype-raw: ^7.0.0
+    rehype-rewrite: ~4.0.0
+    rehype-slug: ~6.0.0
+    remark-gfm: ~4.0.0
+    remark-github-blockquote-alert: ^1.0.0
+    unist-util-visit: ^5.0.0
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 06e71210c04a3494c513e3196453cd4396fa2c1bdf4605ec708281d93dac4dce32619e3b5c23608511127d927e0b79dea934034676a3d5c9f6b5ca367b544075
+  languageName: node
+  linkType: hard
+
+"@uiw/react-md-editor@npm:^4.0.4":
+  version: 4.0.4
+  resolution: "@uiw/react-md-editor@npm:4.0.4"
+  dependencies:
+    "@babel/runtime": ^7.14.6
+    "@uiw/react-markdown-preview": ^5.0.6
+    rehype: ~13.0.0
+    rehype-prism-plus: ~2.0.0
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 6d166b1efd948c67319d29f7852d0b81858910fbca298fe37410a7f99d65122c76eacff0ebcfd276cb32f3ef1f4b072ef6fde9c09110a08260eab8e0ea573ea7
   languageName: node
   linkType: hard
 
@@ -11392,7 +11438,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-markdown@npm:^9.0.1":
+"react-markdown@npm:^9.0.1, react-markdown@npm:~9.0.1":
   version: 9.0.1
   resolution: "react-markdown@npm:9.0.1"
   dependencies:
@@ -11657,7 +11703,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rehype-autolink-headings@npm:^7.1.0":
+"rehype-attr@npm:~3.0.1":
+  version: 3.0.3
+  resolution: "rehype-attr@npm:3.0.3"
+  dependencies:
+    unified: ~11.0.0
+    unist-util-visit: ~5.0.0
+  checksum: afde3189840b3c04e613db45af32f7abf920ec47aa7bfabac5d96372c30de5e45452cd6bbe7e7dabc01429d375d3f20cf7c090e46222373c64c2c9e493131e52
+  languageName: node
+  linkType: hard
+
+"rehype-autolink-headings@npm:^7.1.0, rehype-autolink-headings@npm:~7.1.0":
   version: 7.1.0
   resolution: "rehype-autolink-headings@npm:7.1.0"
   dependencies:
@@ -11690,6 +11746,17 @@ __metadata:
     unified: ^11.0.0
     unist-util-visit: ^5.0.0
   checksum: 2de393dc0480e8047fe0d7713e5acc45fd9defe687888e0111259fef31786b428d82372807d3b5c021a3065af1415f9e8a9760f3ee8375d55880d09ae8e2d1f6
+  languageName: node
+  linkType: hard
+
+"rehype-ignore@npm:^2.0.0":
+  version: 2.0.2
+  resolution: "rehype-ignore@npm:2.0.2"
+  dependencies:
+    hast-util-select: ^6.0.0
+    unified: ^11.0.0
+    unist-util-visit: ^5.0.0
+  checksum: e2e6bb774117a467ee072322e538be33d3fc61848b5f8b4eb247f5e849d6f19878c1191cf7b9419aefa962b3b1450e19c01909d965a8b5da176dac1086e5c8b9
   languageName: node
   linkType: hard
 
@@ -11922,7 +11989,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rehype-prism-plus@npm:^2.0.0":
+"rehype-prism-plus@npm:2.0.0, rehype-prism-plus@npm:^2.0.0, rehype-prism-plus@npm:~2.0.0":
   version: 2.0.0
   resolution: "rehype-prism-plus@npm:2.0.0"
   dependencies:
@@ -12026,7 +12093,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rehype-slug@npm:^6.0.0":
+"rehype-rewrite@npm:~4.0.0":
+  version: 4.0.2
+  resolution: "rehype-rewrite@npm:4.0.2"
+  dependencies:
+    hast-util-select: ^6.0.0
+    unified: ^11.0.3
+    unist-util-visit: ^5.0.0
+  checksum: f2e601655de678c282924192d7f7502621abb98d1609640694aa1eac6ed24a6afd0c0c0bff82f4a939c40a166d3d55e3cf077773458da2de567b232c0bf03a97
+  languageName: node
+  linkType: hard
+
+"rehype-slug@npm:^6.0.0, rehype-slug@npm:~6.0.0":
   version: 6.0.0
   resolution: "rehype-slug@npm:6.0.0"
   dependencies:
@@ -12071,6 +12149,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rehype@npm:~13.0.0":
+  version: 13.0.1
+  resolution: "rehype@npm:13.0.1"
+  dependencies:
+    "@types/hast": ^3.0.0
+    rehype-parse: ^9.0.0
+    rehype-stringify: ^10.0.0
+    unified: ^11.0.0
+  checksum: 8657f4a5b746192151144f22514112ea000894953e1e542382e51da1f249e52ce10dfe68f842ef61216240c610aac940e13377c7e39b6d73f3e5beba2328f94f
+  languageName: node
+  linkType: hard
+
 "remark-frontmatter@npm:^5.0.0":
   version: 5.0.0
   resolution: "remark-frontmatter@npm:5.0.0"
@@ -12083,7 +12173,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-gfm@npm:^4.0.0":
+"remark-gfm@npm:^4.0.0, remark-gfm@npm:~4.0.0":
   version: 4.0.0
   resolution: "remark-gfm@npm:4.0.0"
   dependencies:
@@ -12097,7 +12187,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-github-blockquote-alert@npm:^1.2.1":
+"remark-github-blockquote-alert@npm:^1.0.0, remark-github-blockquote-alert@npm:^1.2.1":
   version: 1.2.1
   resolution: "remark-github-blockquote-alert@npm:1.2.1"
   dependencies:
@@ -13033,6 +13123,7 @@ __metadata:
     "@types/react-syntax-highlighter": ^15.5.13
     "@typescript-eslint/eslint-plugin": ^6.1.0
     "@typescript-eslint/parser": ^6.1.0
+    "@uiw/react-md-editor": ^4.0.4
     autoprefixer: ^10.4.13
     axios: ^1.7.2
     class-variance-authority: ^0.7.0
@@ -13520,6 +13611,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"unified@npm:^11.0.3, unified@npm:~11.0.0":
+  version: 11.0.5
+  resolution: "unified@npm:11.0.5"
+  dependencies:
+    "@types/unist": ^3.0.0
+    bail: ^2.0.0
+    devlop: ^1.0.0
+    extend: ^3.0.0
+    is-plain-obj: ^4.0.0
+    trough: ^2.0.0
+    vfile: ^6.0.0
+  checksum: b3bf7fd6f568cc261e074dae21188483b0f2a8ab858d62e6e85b75b96cc655f59532906ae3c64d56a9b257408722d71f1d4135292b3d7ee02907c8b592fb3cf0
+  languageName: node
+  linkType: hard
+
 "unique-filename@npm:^3.0.0":
   version: 3.0.0
   resolution: "unique-filename@npm:3.0.0"
@@ -13615,7 +13721,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unist-util-visit@npm:^5.0.0":
+"unist-util-visit@npm:^5.0.0, unist-util-visit@npm:~5.0.0":
   version: 5.0.0
   resolution: "unist-util-visit@npm:5.0.0"
   dependencies:

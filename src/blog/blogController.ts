@@ -27,7 +27,21 @@ const getBlogs = async (skip: number, take: number) => {
   }
 };
 
+const createBlog = async (req: Request) => {
+  try {
+    const body = await req.json();
+    const blog = await blogService.createBlog(body);
+    return Response.json(blog);
+  } catch (error) {
+    console.log(error);
+    return new Response("Error creating blog", {
+      status: 500,
+    });
+  }
+};
+
 export default {
   getBlogById,
   getBlogs,
+  createBlog,
 };
