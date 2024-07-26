@@ -7,6 +7,8 @@ const isAdmin = (user: User | null): boolean => {
   // But for personal project, just hard code it
   const email = user?.emailAddresses[0].emailAddress;
 
+  console.log(`Current user's email: ${email}`);
+
   const adminEmails = new Set(["armstrong.wang2000@gmail.com"]);
 
   return !!email && adminEmails.has(email);
