@@ -16,7 +16,7 @@ export default function BlogList() {
   }, []);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return null;
   }
 
   if (status === "failed") {
