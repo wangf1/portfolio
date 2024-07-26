@@ -1,15 +1,12 @@
 {
-  "name": "tailwind-nextjs-starter-blog",
-  "version": "2.2.0",
+  "name": "wangf-portfolio",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
-    "start": "next dev",
-    "dev": "cross-env INIT_CWD=$PWD next dev",
-    "build": "cross-env INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
-    "serve": "next start",
-    "analyze": "cross-env ANALYZE=true next build",
-    "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
-    "prepare": "husky"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "type": "module",
   "dependencies": {
@@ -35,7 +32,6 @@
     "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "contentlayer2": "0.4.6",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "esbuild": "0.20.2",
@@ -50,7 +46,6 @@
     "mongoose": "^8.5.1",
     "nanoid": "^5.0.7",
     "next": "14.2.3",
-    "next-contentlayer2": "0.4.6",
     "next-themes": "^0.3.0",
     "pliny": "0.2.1",
     "postcss": "^8.4.24",
@@ -103,6 +98,5 @@
     "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
       "prettier --write"
     ]
-  },
-  "packageManager": "yarn@3.6.1"
+  }
 }

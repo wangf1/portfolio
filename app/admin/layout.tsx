@@ -1,4 +1,3 @@
-import "@/css/tailwind.css";
 import { isAdmin } from "@/lib/auth/authorization";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
