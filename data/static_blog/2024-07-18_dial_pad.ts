@@ -1,7 +1,9 @@
+import { randomMongoDocId } from "@/lib/utils";
 import { Blog } from "@/src/blog/blogTypes";
 
 const blog: Blog = {
-  _id: "2024-07-18_dial_pad",
+  _id: randomMongoDocId(),
+  readableId: "2024-07-18_dial_pad",
   title: "A small dial pad",
   date: "2024-07-18T19:11:08Z",
   tags: ["React", "Programming", "Tailwind", "Redux"],

@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { fetchBlogs } from "@/lib/redux/blog/blogsSlice";
 import { Skeleton } from "@mui/material";
 import { useEffect } from "react";
+const { nanoid } = require("nanoid");
 
 export default function BlogList() {
   const blogs = useAppSelector((state) => state.blogs.blogs);
@@ -20,9 +21,9 @@ export default function BlogList() {
     return (
       <div className="flex flex-col items-center animate-focusIn m-4">
         {Array.from({ length: 5 }).map((_, index) => (
-          <div key={index} className="mb-2">
+          <div key={nanoid()} className="mb-2">
             <Skeleton
-              key={index}
+              key={nanoid}
               variant="rounded"
               width={600}
               height={118}
@@ -49,18 +50,16 @@ export default function BlogList() {
 
   return (
     <div className="flex flex-col items-center animate-focusIn">
-      <div>
-        {blogs.map((post) => {
-          return (
-            <BlogSummaryCard
-              key={post._id}
-              blog={post}
-              parentPath={BLOG_V2_PATH}
-              className="max-w-3xl"
-            />
-          );
-        })}
-      </div>
+      {blogs.map((post) => {
+        return (
+          <BlogSummaryCard
+            key={post._id}
+            blog={post}
+            parentPath={BLOG_V2_PATH}
+            className="max-w-3xl w-full"
+          />
+        );
+      })}
     </div>
   );
 }

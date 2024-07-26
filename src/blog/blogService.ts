@@ -1,19 +1,22 @@
 import connectToMongoDb from "@/lib/mongodb";
-import { getLocalBlogById, getLocalBlogs } from "@/lib/redux/blog/localBlogs";
+import { getLocalBlogs } from "@/lib/redux/blog/localBlogs";
 import Blog, { IBlog } from "@/src/blog/blogModel";
-import { BlogData, Blog as BlogObj } from "@/src/blog/blogTypes";
+import { BlogData, Blog as BlogType } from "@/src/blog/blogTypes";
 
-const getBlogs = async (skip: number, take: number): Promise<BlogObj[]> => {
+const getBlogs = async (skip: number, take: number): Promise<BlogType[]> => {
   await connectToMongoDb();
-  // TODO implement
-  const blogs = getLocalBlogs().slice(skip, skip + take);
+  const blogs = await Blog.find({})
+    .select("-content")
+    .sort({ isPinned: -1, date: -1 })
+    .skip(skip)
+    .limit(take);
   return blogs;
 };
 
-const getBlogById = async (blogId: string): Promise<BlogObj> => {
-  // TODO implement
+const getBlogById = async (blogId: string): Promise<BlogType> => {
   await connectToMongoDb();
-  return getLocalBlogById(blogId);
+  const blog = await Blog.findOne({ _id: blogId });
+  return blog;
 };
 
 const createBlog = async (data: BlogData): Promise<IBlog> => {
@@ -28,8 +31,25 @@ const createBlog = async (data: BlogData): Promise<IBlog> => {
   return newBlog;
 };
 
+const syncAllLocalBlogsToMongo = async (): Promise<number> => {
+  let total = 0;
+  await connectToMongoDb();
+  const localBlogs = getLocalBlogs();
+  for (const blog of localBlogs) {
+    const existing = await Blog.findOne({ readableId: blog.readableId })
+      .select("_id, readableId")
+      .lean();
+    if (!existing) {
+      total++;
+      await Blog.create(blog);
+    }
+  }
+  return total;
+};
+
 export default {
   getBlogs,
   getBlogById,
   createBlog,
+  syncAllLocalBlogsToMongo,
 };

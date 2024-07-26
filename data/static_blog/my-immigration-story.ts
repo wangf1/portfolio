@@ -1,7 +1,9 @@
+import { randomMongoDocId } from "@/lib/utils";
 import { Blog } from "@/src/blog/blogTypes";
 
 const blog: Blog = {
-  _id: "my-immigration-story",
+  _id: randomMongoDocId(),
+  readableId: "2024-07-16_my-immigration-story",
   title: "Immigration Is Not an Easy Journey",
   date: "2024-07-16T14:41:08Z",
   tags: ["Personal", "Stories", "Immigration"],
@@ -54,8 +56,8 @@ for i in range(1, applications + 1):
 if random.random() < 0.01: # 1% chance of getting a positive response
 responses.append(f"Received response for application {i}")
 
-    print(responses)
-    return responses
+print(responses)
+return responses
 
 \`\`\`
 

@@ -1,7 +1,9 @@
+import { randomMongoDocId } from "@/lib/utils";
 import { Blog } from "@/src/blog/blogTypes";
 
 const blog: Blog = {
-  _id: "2024-07-17_leetcode_necessity",
+  _id: randomMongoDocId(),
+  readableId: "2024-07-17_leetcode_necessity",
   title: "About Practicing on LeetCode",
   tags: ["Thoughts", "Programming", "LeetCode"],
   date: "2024-07-17T17:37:53Z",

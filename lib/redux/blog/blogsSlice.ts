@@ -35,6 +35,14 @@ const createBlog = createAsyncThunk<Blog, BlogData>(
   }
 );
 
+const syncLocalBlogsToMongo = createAsyncThunk<
+  { amountOfSyncedBlogs: number },
+  void
+>("blogs/syncLocalBlogsToMongo", async () => {
+  const response = await axios.post(BASE_URL + "sync-local-to-mongo");
+  return response.data;
+});
+
 const commentsSlice = createSlice({
   name: "blogs",
   initialState,
@@ -82,10 +90,18 @@ const commentsSlice = createSlice({
           description: "Something went wrong while creating the blog",
           duration: 3000,
         });
+      })
+      .addCase(syncLocalBlogsToMongo.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        toast({
+          title: "Success",
+          description: `Blog synced successfully. Number of synced blogs: ${action.payload.amountOfSyncedBlogs}`,
+          duration: 3000,
+        });
       });
   },
 });
 
-export { createBlog, fetchBlogById, fetchBlogs };
+export { createBlog, fetchBlogById, fetchBlogs, syncLocalBlogsToMongo };
 export const { clearSelectedBlog } = commentsSlice.actions;
 export default commentsSlice.reducer;

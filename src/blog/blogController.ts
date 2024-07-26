@@ -40,8 +40,21 @@ const createBlog = async (req: Request) => {
   }
 };
 
+const syncAllLocalBlogsToMongo = async (): Promise<Response> => {
+  try {
+    const amountOfSyncedBlogs = await blogService.syncAllLocalBlogsToMongo();
+    return Response.json({ amountOfSyncedBlogs });
+  } catch (error) {
+    console.log(error);
+    return new Response("Error syncing blogs", {
+      status: 500,
+    });
+  }
+};
+
 export default {
   getBlogById,
   getBlogs,
   createBlog,
+  syncAllLocalBlogsToMongo,
 };

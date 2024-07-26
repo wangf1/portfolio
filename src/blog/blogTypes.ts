@@ -1,5 +1,6 @@
 export interface Blog {
   _id: string;
+  readableId: string;
   title: string;
   date: string;
   summary: string;

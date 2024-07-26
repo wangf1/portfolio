@@ -1,7 +1,9 @@
+import { randomMongoDocId } from "@/lib/utils";
 import { Blog } from "@/src/blog/blogTypes";
 
 const blog: Blog = {
-  _id: "2024-07-25_some_thoughts",
+  _id: randomMongoDocId(),
+  readableId: "2024-07-25_some_thoughts",
   title: "Some thoughts",
   date: "2024-07-25T16:28:17Z",
   tags: ["Philosophy", "Politics", "Justice", "Stories", "MongoDB"],

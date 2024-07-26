@@ -1,60 +1,21 @@
 "use client";
 
+import { exampleMarkdown } from "@/app/admin/blog-editor/example_markdown_content";
 import { BLOG_V2_PATH } from "@/app/blog-v2/current_path";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { createBlog } from "@/lib/redux/blog/blogsSlice";
+import { createBlog, syncLocalBlogsToMongo } from "@/lib/redux/blog/blogsSlice";
 import { BlogData } from "@/src/blog/blogTypes";
 import { Button } from "@mui/material";
 import MDEditor from "@uiw/react-md-editor";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const exampleMarkdown = `
-A paragraph with *emphasis* and **strong importance**.
-
-  > A block quote with ~strikethrough~ and a URL: https://reactjs.org.
-  
-  * Lists
-  * [ ] todo
-  * [x] done
-  
-  A table:
-  
-  | a | b |
-  | - | - |
-
-  Here is some JavaScript code:
-  ~~~js
-  let code = 'This is a code block';
-  ~~~
-  # Heading 1
-  ## Heading 2
-  ### Heading 3
-  This is a paragraph with some **bold text** and _italic text_.
-
-  - List item 1
-  - List item 2
-  - List item 3
-
-  1. Ordered item 1
-  2. Ordered item 2
-  3. Ordered item 3
-
-  > This is a blockquote.
-
-  \`\`\`javascript
-  const codeBlock = 'This is a code block';
-  console.log(codeBlock);
-  \`\`\`
-
-  [This is a link](https://example.com)
-`;
-
 const MarkdownEditor: React.FC = () => {
   const [title, setTitle] = useState<string>("");
   const [summary, setSummary] = useState<string>("");
   const [tags, setTags] = useState<string>("");
   const [content, setContent] = useState<string>(exampleMarkdown);
+  const [isPinned, setIsPinned] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
 
@@ -71,11 +32,16 @@ const MarkdownEditor: React.FC = () => {
   const handleSave = () => {
     const blogData: BlogData = {
       title,
+      readableId: title.replaceAll(" ", "_").toLowerCase(),
       summary,
       tags: tags.split(",").map((tag) => tag.trim()),
+      isPinned,
       content,
     };
     dispatch(createBlog(blogData));
+  };
+  const handleSync = () => {
+    dispatch(syncLocalBlogsToMongo());
   };
 
   return (
@@ -90,19 +56,30 @@ const MarkdownEditor: React.FC = () => {
           />
         </div>
         <div className="flex space-x-4">
-          <label>Summary</label>
+          <label htmlFor="summary">Summary</label>
           <input
+            id="summary"
             className="mb-4 bg-transparent border-gray-300 border-b border-0"
             value={summary}
             onChange={(e) => setSummary(e.target.value)}
           />
         </div>
         <div className="flex space-x-4">
-          <label>Tags</label>
+          <label htmlFor="tags">Tags</label>
           <input
+            id="tags"
             className="mb-4 bg-transparent border-gray-300 border-b border-0"
             value={tags}
             onChange={(e) => setTags(e.target.value)}
+          />
+        </div>
+        <div className="flex space-x-4">
+          <label htmlFor="pinned">Pinned</label>
+          <input
+            id="pinned"
+            type="checkbox"
+            checked={isPinned}
+            onChange={(e) => setIsPinned(e.target.checked)}
           />
         </div>
         <MDEditor
@@ -111,7 +88,10 @@ const MarkdownEditor: React.FC = () => {
           height={500}
           className="mb-4"
         />
-        <div className="flex justify-end">
+        <div className="flex justify-end space-x-2">
+          <Button variant="contained" color="primary" onClick={handleSync}>
+            Sync Local Blogs to Mongo
+          </Button>
           <Button variant="contained" color="primary" onClick={handleSave}>
             Save
           </Button>
