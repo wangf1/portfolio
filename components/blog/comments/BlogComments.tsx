@@ -7,10 +7,15 @@ import { useEffect } from "react";
 
 interface BlogCommentsProps {
   blogId: string;
+  className?: string;
 }
 
-export default function BlogComments({ blogId }: Readonly<BlogCommentsProps>) {
+export default function BlogComments({
+  blogId,
+  className,
+}: Readonly<BlogCommentsProps>) {
   const blogComments = useAppSelector((state) => state.comments.blogComments);
+  const blogCommentsStatus = useAppSelector((state) => state.comments.status);
 
   const dispatch = useAppDispatch();
 
@@ -18,8 +23,12 @@ export default function BlogComments({ blogId }: Readonly<BlogCommentsProps>) {
     dispatch(fetchComments(blogId));
   }, [blogId]);
 
+  if (blogCommentsStatus !== "idle") {
+    return null;
+  }
+
   return (
-    <div>
+    <div className={className}>
       {blogComments.map((comment) => (
         <Tiptap
           key={comment._id}

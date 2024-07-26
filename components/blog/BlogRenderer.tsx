@@ -1,4 +1,5 @@
 "use client";
+import BlogComments from "@/components/blog/comments/BlogComments";
 import { MarkdownRenderer } from "@/components/common/MarkdownRender";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { fetchBlogById } from "@/lib/redux/blog/blogsSlice";
@@ -58,6 +59,7 @@ export default function BlogRenderer({
       <div>
         <MarkdownRenderer content={blog.content} />
       </div>
+      <BlogComments blogId={blogId} />
     </div>
   );
 }

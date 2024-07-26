@@ -10,7 +10,6 @@ export default function BlogDetailsPage({
   return (
     <div className="flex flex-col items-center pt-10 pb-20">
       <BlogRenderer blogId={params.id} parentPath={BLOG_V2_PATH} />
-      <BlogComments blogId={params.id} />
     </div>
   );
 }
