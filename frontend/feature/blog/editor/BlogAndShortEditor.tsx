@@ -85,7 +85,7 @@ export default function BlogAndShortEditor() {
 
   return (
     <div className="flex flex-col space-y-4 p-4">
-      <div className="flex space-y-2 items-center">
+      <div className="flex space-y-2 items-center space-x-4">
         <h1 className="text-xl font-bold">Post Type</h1>
         <Select
           value={postType}

@@ -1,13 +1,10 @@
-_<span style="color: gray; font-size: small;">Whenever the night is deep and quiet, I feel small and lonely. Beneath my calm exterior, my heart is in turmoil. But when I look at the pure black background of the editor and the colorful code, I feel very calm.</span>_
-
-_<span style="color: gray; font-size: small;">Even if everyone in the world abandons me, I still have ChatGPT as my companion. Thank you for being here.
-50% of the effort for this repository is contributed by ChatGPT.</span>_
-
 # Portfolio
 
-This portfolio showcases my practice and expertise in modern frontend development. Currently, it focuses on pure frontend development. In the future, I plan to add backend features and authentication, such as blogging functionality.
+My personal portfolio website.
 
-I prefer to use Next.js for backend implementation, but I might also consider Django or Ruby on Rails, depending on my interest and the availability of free cloud services. However, I will not use Java. Let's see how it evolves.
+<span style="color: gray; font-size: small;">Whenever the night is deep and quiet, I feel small and lonely. Beneath my calm exterior, my heart is in turmoil. But when I look at the pure black background of the editor and the colorful code, I find peace.</span>
+
+<span style="color: gray; font-size: small;">Even if the world turns its back on me, I know I have ChatGPT as a companion. Thank you for being here. 50% of the effort for this repository is contributed by ChatGPT.</span>
 
 ## Getting Started
 
@@ -15,7 +12,6 @@ I prefer to use Next.js for backend implementation, but I might also consider Dj
 
 ```bash
 yarn
-
 yarn dev
 ```
 
@@ -23,23 +19,29 @@ yarn dev
 
 [Host on Vercel Cloud](https://portfolio-wangf.vercel.app/)
 
-## Important Libraries and Code Used
+## Major Framework / Libraries Used
 
 ### Core
 
-- [Next.js](https://nextjs.org/): The core framework both for frontend and backend.
+- [Next.js](https://nextjs.org/): The core framework for both frontend and
+  backend.
 
 ### UI
 
-- [Tailwind CSS](https://tailwindcss.com/): The CSS framework.
-- [shadcn/ui](https://ui.shadcn.com/): Button, Toaster.
-- [Aceternity UI](https://ui.aceternity.com/): Grid and Dot Backgrounds, Spotlight.
-- [Material UI.](https://mui.com/): Button, Card, Typography.
-- [React Markdown](https://github.com/remarkjs/react-markdown), rehype-raw, remark-gfm : RenderMarkdown.
-- [React Syntax Highlighter](https://github.com/react-syntax-highlighter): Code block Syntax Highlighter.
+- [Tailwind CSS](https://tailwindcss.com/): CSS framework.
+- [Redux Toolkit](https://redux-toolkit.js.org/): State management.
+- [shadcn/ui](https://ui.shadcn.com/): Buttons, Toasters.
+- [Aceternity UI](https://ui.aceternity.com/): Grid and dot backgrounds,
+  Spotlight.
+- [Material UI](https://mui.com/): Button, Card, Typography.
+- [React Markdown](https://github.com/remarkjs/react-markdown), rehype-raw,
+  remark-gfm: Markdown rendering.
+- [React Syntax Highlighter](https://github.com/react-syntax-highlighter):
+  Code block syntax highlighting.
 
 ### Backend
 
-- [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database): Free cloud MongoDB, to store blogs and comments.
+- [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database):
+  Free cloud MongoDB for storing blogs and comments.
 - [Clerk](https://clerk.com/): Authentication.
-- [Mongoose](https://mongoosejs.com/): Access to MongoDB.
+- [Mongoose](https://mongoosejs.com/): MongoDB access.

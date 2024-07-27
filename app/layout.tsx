@@ -7,6 +7,7 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import Background from "@/frontend/common/Background";
 import Navbar from "@/frontend/common/layout/Navbar";
 import { MUIThemeProvider } from "@/frontend/common/mui_theme/MUIThemeProvider";
+import { darkTheme } from "@/frontend/common/mui_theme/theme";
 import { Toaster } from "@/frontend/ui/toaster";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -24,6 +25,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const nextJSDefaultTheme = "dark";
+  const muiDefaultTheme = darkTheme;
+
   return (
     <StoreProvider>
       <ClerkProvider>
@@ -31,12 +35,12 @@ export default function RootLayout({
           <body className={inter.className}>
             <NextThemesProvider
               attribute="class"
-              defaultTheme="dark"
+              defaultTheme={nextJSDefaultTheme}
               enableSystem
               disableTransitionOnChange
             >
               <AppRouterCacheProvider>
-                <MUIThemeProvider>
+                <MUIThemeProvider defaultTheme={muiDefaultTheme}>
                   <Background />
                   <Navbar />
                   {children}

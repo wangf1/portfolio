@@ -1,8 +1,7 @@
 "use client";
-import { darkTheme, lightTheme } from "@/frontend/common/mui_theme/theme";
+import { darkTheme } from "@/frontend/common/mui_theme/theme";
 import { Theme } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import { useTheme } from "next-themes";
 import { createContext, useMemo, useState } from "react";
 
 // Create the context with default values
@@ -12,11 +11,16 @@ const initialContext = {
 };
 const MUIThemeContext = createContext(initialContext);
 
-const MUIThemeProvider = ({ children }) => {
-  const { theme: nextJSTheme } = useTheme();
+interface MUIThemeProviderProps {
+  children: React.ReactNode;
+  defaultTheme: Theme;
+}
 
-  const currentTheme = nextJSTheme === "dark" ? darkTheme : lightTheme;
-  const [theme, setTheme] = useState(currentTheme);
+const MUIThemeProvider = ({
+  children,
+  defaultTheme,
+}: MUIThemeProviderProps) => {
+  const [theme, setTheme] = useState(darkTheme);
 
   const value = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
 
