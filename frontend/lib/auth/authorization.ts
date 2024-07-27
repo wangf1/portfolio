@@ -10,7 +10,10 @@ const isAdmin = (user: User | UserResource | null): boolean => {
 
   console.log(`Current user's email: ${email}`);
 
-  const adminEmails = new Set(["armstrong.wang2000@gmail.com"]);
+  const adminEmails = new Set([
+    "armstrong.wang2000@gmail.com",
+    "armstrong_wang@hotmail.com",
+  ]);
 
   return !!email && adminEmails.has(email);
 };
