@@ -1,4 +1,4 @@
-import Contact from "@/features/resume/Contact";
+import Contact from "@/frontend/feature/resume/Contact";
 
 export default function ContactPage() {
   return <Contact />;

@@ -1,4 +1,4 @@
-import SelfIntroductionEssay from "@/features/resume/SelfIntroductionEssay";
+import SelfIntroductionEssay from "@/frontend/feature/resume/SelfIntroductionEssay";
 
 export default function AboutMePage() {
   return <SelfIntroductionEssay />;

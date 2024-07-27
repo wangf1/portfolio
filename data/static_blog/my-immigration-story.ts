@@ -1,5 +1,5 @@
-import { randomMongoDocId } from "@/lib/utils";
-import { Blog } from "@/src/blog/blogTypes";
+import { Blog } from "@/common/types/blog/blogTypes";
+import { randomMongoDocId } from "@/frontend/lib/utils";
 
 const blog: Blog = {
   _id: randomMongoDocId(),

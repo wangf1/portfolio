@@ -1,4 +1,4 @@
-import Resume from "@/features/resume/Resume";
+import Resume from "@/frontend/feature/resume/Resume";
 
 export default function ExperiencePage() {
   return <Resume />;

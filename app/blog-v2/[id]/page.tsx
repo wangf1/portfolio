@@ -1,5 +1,5 @@
 import { BLOG_V2_PATH } from "@/app/blog-v2/current_path";
-import BlogRenderer from "@/components/blog/BlogRenderer";
+import BlogRenderer from "@/frontend/feature/blog/BlogRenderer";
 
 export default function BlogDetailsPage({
   params,

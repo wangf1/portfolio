@@ -1,13 +1,13 @@
 import StoreProvider from "@/app/StoreProvider";
 import "@/app/globals.css";
-import Background from "@/components/common/Background";
-import Navbar from "@/components/layout/Navbar";
-import { Toaster } from "@/components/ui/toaster";
-import { MUIThemeProvider } from "@/src/mui_theme/MUIThemeProvider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
+import Background from "@/frontend/common/Background";
+import Navbar from "@/frontend/common/layout/Navbar";
+import { MUIThemeProvider } from "@/frontend/common/mui_theme/MUIThemeProvider";
+import { Toaster } from "@/frontend/ui/toaster";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 

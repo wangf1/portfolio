@@ -1,5 +1,5 @@
-import { isAdmin } from "@/lib/auth/authorization";
-import blogController from "@/src/blog/blogController";
+import blogController from "@/backend/blog/blogController";
+import { isAdmin } from "@/frontend/lib/auth/authorization";
 import { clerkClient, getAuth } from "@clerk/nextjs/server";
 import { NextRequest } from "next/server";
 

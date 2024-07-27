@@ -2,9 +2,12 @@
 
 import { exampleMarkdown } from "@/app/admin/blog-editor/example_markdown_content";
 import { BLOG_V2_PATH } from "@/app/blog-v2/current_path";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { createBlog, syncLocalBlogsToMongo } from "@/lib/redux/blog/blogsSlice";
-import { BlogData } from "@/src/blog/blogTypes";
+import { BlogData } from "@/common/types/blog/blogTypes";
+import { useAppDispatch, useAppSelector } from "@/frontend/lib/hooks";
+import {
+  createBlog,
+  syncLocalBlogsToMongo,
+} from "@/frontend/lib/redux/blog/blogsSlice";
 import { Button } from "@mui/material";
 import MDEditor from "@uiw/react-md-editor";
 import { useRouter } from "next/navigation";

@@ -1,4 +1,4 @@
-import commentController from "@/src/blog/comments/commentController";
+import commentController from "@/backend/blog/comments/commentController";
 import { NextRequest } from "next/server";
 
 type Params = {

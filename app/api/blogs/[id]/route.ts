@@ -1,4 +1,4 @@
-import blogController from "@/src/blog/blogController";
+import blogController from "@/backend/blog/blogController";
 import { NextRequest } from "next/server";
 
 type Params = {

@@ -1,4 +1,4 @@
-import { isAdmin } from "@/lib/auth/authorization";
+import { isAdmin } from "@/frontend/lib/auth/authorization";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
 
