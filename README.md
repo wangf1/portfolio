@@ -25,8 +25,21 @@ yarn dev
 
 ## Important Libraries and Code Used
 
-- [Next.js](https://nextjs.org/): The core framework.
+### Core
+
+- [Next.js](https://nextjs.org/): The core framework both for frontend and backend.
+
+### UI
+
 - [Tailwind CSS](https://tailwindcss.com/): The CSS framework.
-- [shadcn/ui](https://ui.shadcn.com/): Essential UI components.
-- [Aceternity UI](https://ui.aceternity.com/): Beautiful backgrounds and animations.
-- [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog): Simplifies rendering markdown posts.
+- [shadcn/ui](https://ui.shadcn.com/): Button, Toaster.
+- [Aceternity UI](https://ui.aceternity.com/): Grid and Dot Backgrounds, Spotlight.
+- [Material UI.](https://mui.com/): Button, Card, Typography.
+- [React Markdown](https://github.com/remarkjs/react-markdown), rehype-raw, remark-gfm : RenderMarkdown.
+- [React Syntax Highlighter](https://github.com/react-syntax-highlighter): Code block Syntax Highlighter.
+
+### Backend
+
+- [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database): Free cloud MongoDB, to store blogs and comments.
+- [Clerk](https://clerk.com/): Authentication.
+- [Mongoose](https://mongoosejs.com/): Access to MongoDB.
