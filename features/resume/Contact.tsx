@@ -32,7 +32,7 @@ export default function Contact() {
             <a
               href="https://www.linkedin.com/in/feng-wang-ba373633/"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               className=" flex text-blue-500 dark:text-blue-300 hover:underline"
             >
               <LinkedinIcon />

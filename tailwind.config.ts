@@ -7,14 +7,38 @@ import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColo
 const config = {
   darkMode: ["class"],
   content: [
-    "./node_modules/pliny/**/*.js",
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,tsx}",
-    "./components/**/*.{js,ts,tsx}",
-    "./layouts/**/*.{js,ts,tsx}",
-    "./data/**/*.mdx",
-    "./features/**/*.{ts,tsx}",
+    "./**/*.{js,ts,jsx,tsx}",
+    "!./node_modules/**",
+    "!./dist/**",
+    "!./.next/**",
+    "!./data/**",
+    "!./lib/**",
+    "!./src/**",
   ],
+  safelist: [
+    // As dynamic contents used, keep some common styles here, to avoid
+    // be purged by TailwindCSS
+    "dark:text-blue-200",
+    "text-blue-950",
+    "text-lg",
+    "shadow-xl",
+    "shadow-gray-900",
+    "dark:shadow-gray-500",
+    "p-4",
+    "rotate-[-5deg]",
+    "w-[850px]",
+    "h-auto",
+    "opacity-90",
+    "dark:text-green-100",
+    "text-orange-900",
+    "dark:text-orange-100",
+    "rotate-[5deg]",
+    "w-96",
+    "dark:text-lime-100",
+    "text-lime-950",
+    "rotate-[2deg]",
+  ],
+
   prefix: "",
   theme: {
     container: {

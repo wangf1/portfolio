@@ -16,16 +16,15 @@ export default function Resume() {
         <li>
           <strong>Programming Languages:</strong> Java (16 years), JavaScript (5
           years), TypeScript (2 years), Python (2 years), SQL (10+ years),
-          Rust/C++/Go/C#/Kotlin (0.1 Year)
+          Rust/C++/Go/C#/Kotlin (0.1 year)
         </li>
         <li>
           <strong>Frameworks and Libraries:</strong> Spring Boot (10+ years),
-          React (2 years), Node.js (2 years), Django (1 year), Next.js (0.5
-          years)
+          React (2 years), Node.js (2 years), Django (1 year), Next.js (1 year)
         </li>
         <li>
-          <strong>Tools:</strong> Git (10+ years), IDEA (10+ Years), VS Code (5+
-          Years)
+          <strong>Tools:</strong> Git (10+ years), IDEA (10+ years), VS Code (5+
+          years)
         </li>
         <li>
           <strong>Methodologies, Cloud, Database, Testing, CI/CD, etc.:</strong>
@@ -137,7 +136,7 @@ export default function Resume() {
           <a
             href="https://www.linkedin.com/in/feng-wang-ba373633"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="text-blue-500 dark:text-blue-300 hover:underline 
               flex items-center  w-fit"
           >
@@ -150,6 +149,7 @@ export default function Resume() {
           <a
             href="https://github.com/wangf1"
             target="_blank"
+            rel="noopener noreferrer"
             className="text-blue-500 dark:text-blue-300 hover:underline
               flex items-center w-fit"
           >

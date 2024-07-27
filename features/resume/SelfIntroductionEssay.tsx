@@ -9,7 +9,7 @@ const SelfIntroductionEssay: React.FC = () => {
       <h1 className="text-4xl font-bold  mb-6 decoration-2">Who Am I?</h1>
       <p className=" mb-6 leading-relaxed">
         My name is <strong className="font-semibold ">Mark Wang</strong>,
-        currently living in Calgary, Canada with permanent resident status.
+        currently living in Calgary, Canada, with permanent resident status.
       </p>
       <p className="mb-6 leading-relaxed">
         With 16 years of experience as a software developer, I have built a
@@ -26,7 +26,7 @@ const SelfIntroductionEssay: React.FC = () => {
       <p className="mb-6 leading-relaxed">
         I come from China. Experiencing the extreme lockdowns of 2022 gave me a
         new understanding of freedom and dignity. I spent 30 years from birth to
-        becoming aware of the world, and another 13 years to grasp the essence
+        becoming aware of the world, and another 13 years grasping the essence
         of modern civilization.
       </p>
       <p className="mb-6 leading-relaxed">
@@ -64,7 +64,7 @@ const SelfIntroductionEssay: React.FC = () => {
         </li>
         <li>
           <strong>Embrace relocation opportunities</strong> within Canada as
-          required.
+          needed.
         </li>
       </ul>
     </article>
