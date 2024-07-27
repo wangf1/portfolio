@@ -1,7 +1,7 @@
 import { Blog as BlogType } from "@/common/types/blog/blogTypes";
 import mongoose, { Document, ObjectId, Schema } from "mongoose";
 
-interface IBlog extends Document<ObjectId>, Omit<BlogType, "_id"> {}
+interface BlogDocument extends Document<ObjectId>, Omit<BlogType, "_id"> {}
 
 const BlogSchema: Schema = new Schema({
   readableId: { type: String, required: true },
@@ -13,8 +13,7 @@ const BlogSchema: Schema = new Schema({
   isPinned: { type: Boolean },
 });
 
-const Blog = mongoose.models.Blog || mongoose.model<IBlog>("Blog", BlogSchema);
+const BlogDAO =
+  mongoose.models.Blog || mongoose.model<BlogDocument>("Blog", BlogSchema);
 
-export default Blog;
-
-export type { IBlog };
+export default BlogDAO;

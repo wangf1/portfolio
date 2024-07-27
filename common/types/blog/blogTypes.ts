@@ -9,7 +9,7 @@ export interface Blog {
   isPinned?: boolean;
 }
 
-export type BlogData = Omit<Blog, "_id" | "date">;
+export type BlogCreationData = Omit<Blog, "_id" | "date">;
 
 export interface BlogState {
   blogs: Blog[];

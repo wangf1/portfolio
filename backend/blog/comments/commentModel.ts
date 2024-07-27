@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from "mongoose";
 
-interface IComment extends Document {
+interface BlogCommentDocument extends Document {
   blogId: string;
   text: string;
   author: string;
@@ -14,9 +14,8 @@ const CommentSchema: Schema = new Schema({
   date: { type: String, required: true },
 });
 
-const BlogComment =
-  mongoose.models.Comment || mongoose.model<IComment>("Comment", CommentSchema);
+const BlogCommentDAO =
+  mongoose.models.Comment ||
+  mongoose.model<BlogCommentDocument>("Comment", CommentSchema);
 
-export default BlogComment;
-
-export type { IComment };
+export default BlogCommentDAO;

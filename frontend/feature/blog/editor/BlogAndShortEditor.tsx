@@ -2,7 +2,7 @@
 
 import { BLOG_V2_PATH } from "@/app/blog-v2/current_path";
 import { SHORTS_PATH } from "@/app/shorts/shorts_path";
-import { BlogData } from "@/common/types/blog/blogTypes";
+import { BlogCreationData } from "@/common/types/blog/blogTypes";
 import { ShortCreationData } from "@/common/types/short/shortTypes";
 import { exampleMarkdown } from "@/frontend/feature/blog/editor/example_markdown_content";
 import { useAppDispatch, useAppSelector } from "@/frontend/lib/hooks";
@@ -43,7 +43,7 @@ export default function BlogAndShortEditor() {
   }, [blogCreationStatus, shortCreationStatus]);
 
   const saveBlog = async () => {
-    const blogData: BlogData = {
+    const blogData: BlogCreationData = {
       title,
       readableId: title.replaceAll(" ", "_").toLowerCase(),
       summary,

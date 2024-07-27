@@ -1,4 +1,8 @@
-import { Blog, BlogData, BlogState } from "@/common/types/blog/blogTypes";
+import {
+  Blog,
+  BlogCreationData,
+  BlogState,
+} from "@/common/types/blog/blogTypes";
 import { toast } from "@/frontend/ui/use-toast";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
@@ -27,7 +31,7 @@ const fetchBlogs = createAsyncThunk<Blog[], void>(
   }
 );
 
-const createBlog = createAsyncThunk<Blog, BlogData>(
+const createBlog = createAsyncThunk<Blog, BlogCreationData>(
   "blogs/createBlog",
   async (blog) => {
     const response = await axios.post<Blog>(BASE_URL, blog);
