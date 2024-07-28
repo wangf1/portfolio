@@ -90,8 +90,7 @@ export default function BlogAndShortEditor() {
         <Select
           value={postType}
           onChange={handlePostTypeChange}
-          className="bg-transparent border-gray-300 border-b border-0
-            dark:text-white"
+          className="bg-transparent border-gray-300 border-b border-0"
         >
           <MenuItem value={"blog"}>Blog</MenuItem>
           <MenuItem value={"short"}>Short</MenuItem>

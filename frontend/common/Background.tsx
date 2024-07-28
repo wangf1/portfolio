@@ -3,35 +3,11 @@ import BackgroundImage from "@/assets/images/Background.png";
 import { Spotlight } from "@/frontend/ui/Spotlight";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 const Background = () => {
   const { theme } = useTheme();
-  const [systemTheme, setSystemTheme] = useState("");
-  const [isThemeLoaded, setIsThemeLoaded] = useState(false);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = () => {
-      setSystemTheme(mediaQuery.matches ? "dark" : "light");
-      setIsThemeLoaded(true); // Set theme loaded to true once the system theme is determined
-    };
-
-    handleChange(); // Set the initial state
-    mediaQuery.addEventListener("change", handleChange); // Add event listener for changes
-
-    return () => mediaQuery.removeEventListener("change", handleChange); // Cleanup event listener on unmount
-  }, [theme]);
-
-  let currentTheme = theme;
-  if (currentTheme !== "dark" && currentTheme !== "light") {
-    currentTheme = systemTheme;
-  }
-  const spotlightColor = currentTheme === "dark" ? "white" : "#57d0f8";
-
-  if (!isThemeLoaded) {
-    return null;
-  }
+  const spotlightColor = theme === "dark" ? "white" : "#57d0f8";
 
   return (
     <div className="absolute inset-0 overflow-hidden -z-50">

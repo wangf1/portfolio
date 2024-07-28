@@ -1,41 +1,36 @@
 // app/components/ThemeSwitcher.tsx
 "use client";
 
-import { MUIThemeContext } from "@/frontend/common/mui_theme/MUIThemeProvider";
-import { darkTheme, lightTheme } from "@/frontend/common/mui_theme/theme";
+import { AppThemeContext } from "@/frontend/common/theme/AppThemeProvider";
 import { Button } from "@/frontend/ui/button";
-import { Theme } from "@mui/material/styles";
 import { MoonStar, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 
 export function ThemeSwitcher() {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useContext(AppThemeContext);
 
-  const { setTheme: setMuiTheme } = useContext(MUIThemeContext);
+  /*
+  Use an effect to update the next theme whenever the app theme changes.
+  This logic is placed here instead of in AppThemeProvider because 
+  the next-themes useTheme hook is not be ready for use there, 
+  causing next theme to not update.
 
+  The reason of not putting it in onClick is, keep it here can make next-themes 
+  update according to system theme change. See also appThemeHook -> useAppTheme
+  for how to listen system theme change.
+ */
+  const { setTheme: setNextTheme } = useTheme();
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
+    setNextTheme(theme);
+  }, [theme]);
 
   const icon =
     theme === "dark" ? <Sun /> : <MoonStar className="text-gray-600" />;
 
   const onClick = () => {
-    let nextJSTheme: "dark" | "light";
-    let muiTheme: Theme;
-    if (theme === "dark") {
-      nextJSTheme = "light";
-      muiTheme = lightTheme;
-    } else {
-      nextJSTheme = "dark";
-      muiTheme = darkTheme;
-    }
-    setTheme(nextJSTheme);
-    setMuiTheme(muiTheme);
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
   };
 
   return (

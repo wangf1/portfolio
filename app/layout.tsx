@@ -2,12 +2,10 @@ import StoreProvider from "@/app/StoreProvider";
 import "@/app/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 import Background from "@/frontend/common/Background";
 import Navbar from "@/frontend/common/layout/Navbar";
-import { MUIThemeProvider } from "@/frontend/common/mui_theme/MUIThemeProvider";
-import { darkTheme } from "@/frontend/common/mui_theme/theme";
+import { AppThemeProvider } from "@/frontend/common/theme/AppThemeProvider";
 import { Toaster } from "@/frontend/ui/toaster";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -25,29 +23,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const nextJSDefaultTheme = "dark";
-  const muiDefaultTheme = darkTheme;
-
   return (
     <StoreProvider>
       <ClerkProvider>
         <html lang="en">
           <body className={inter.className}>
-            <NextThemesProvider
-              attribute="class"
-              defaultTheme={nextJSDefaultTheme}
-              enableSystem
-              disableTransitionOnChange
-            >
-              <AppRouterCacheProvider>
-                <MUIThemeProvider defaultTheme={muiDefaultTheme}>
-                  <Background />
-                  <Navbar />
-                  {children}
-                  <Toaster />
-                </MUIThemeProvider>
-              </AppRouterCacheProvider>
-            </NextThemesProvider>
+            <AppRouterCacheProvider>
+              <AppThemeProvider>
+                <Background />
+                <Navbar />
+                {children}
+                <Toaster />
+              </AppThemeProvider>
+            </AppRouterCacheProvider>
           </body>
         </html>
       </ClerkProvider>
