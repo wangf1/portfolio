@@ -1,4 +1,5 @@
 import blogService from "@/backend/blog/blogService";
+import { BlogQueryParams } from "@/common/types/blog/blogTypes";
 
 const getBlogById = async (blogId: string) => {
   try {
@@ -15,9 +16,9 @@ const getBlogById = async (blogId: string) => {
   }
 };
 
-const getBlogs = async (skip: number, take: number) => {
+const getBlogs = async (queryParams: BlogQueryParams) => {
   try {
-    const blogs = await blogService.getBlogs(skip, take);
+    const blogs = await blogService.getBlogs(queryParams);
     return Response.json(blogs);
   } catch (error) {
     console.log(error);

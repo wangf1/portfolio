@@ -1,6 +1,7 @@
 import {
   Blog,
   BlogCreationData,
+  BlogQueryParams,
   BlogState,
 } from "@/common/types/blog/blogTypes";
 import { toast } from "@/frontend/ui/use-toast";
@@ -23,10 +24,16 @@ const fetchBlogById = createAsyncThunk<Blog, string>(
   }
 );
 
-const fetchBlogs = createAsyncThunk<Blog[], void>(
+const fetchBlogs = createAsyncThunk<Blog[], BlogQueryParams>(
   "blogs/fetchBlogs",
-  async () => {
-    const response = await axios.get<Blog[]>(BASE_URL);
+  async ({ skip, take, tags }: BlogQueryParams) => {
+    const queryParams = new URLSearchParams({
+      skip: skip.toString(),
+      take: take.toString(),
+      ...(tags && tags.length > 0 ? { tags: tags.join(",") } : {}),
+    });
+
+    const response = await axios.get<Blog[]>(`${BASE_URL}?${queryParams}`);
     return response.data;
   }
 );

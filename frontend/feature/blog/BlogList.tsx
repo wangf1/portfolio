@@ -14,7 +14,13 @@ export default function BlogList() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchBlogs());
+    dispatch(
+      fetchBlogs({
+        // TODO: hard code for now, until after add pagination on UI
+        skip: 0,
+        take: 10,
+      })
+    );
   }, []);
 
   if (status === "loading") {
@@ -49,7 +55,7 @@ export default function BlogList() {
   });
 
   return (
-    <div className="flex flex-col items-center animate-focusIn">
+    <div className="flex flex-col items-center animate-focusIn my-8">
       {blogs.map((post) => {
         return (
           <BlogSummaryCard

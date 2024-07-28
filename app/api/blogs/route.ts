@@ -12,6 +12,7 @@ export async function GET(req: NextRequest) {
   const takeStr = searchParams.get("take");
   const skip = parseInt(skipStr ?? "0", 10);
   const take = parseInt(takeStr ?? "10", 10);
+  const tags = searchParams.get("tags")?.split(",");
 
   if (isNaN(skip) || isNaN(take) || skip < 0 || take <= 0) {
     return Response.json(
@@ -19,7 +20,7 @@ export async function GET(req: NextRequest) {
       { status: 400 }
     );
   }
-  return blogController.getBlogs(skip, take);
+  return blogController.getBlogs({ skip, take, tags });
 }
 
 export async function POST(req: NextRequest) {

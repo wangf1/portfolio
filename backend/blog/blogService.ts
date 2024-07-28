@@ -2,19 +2,28 @@ import BlogDAO from "@/backend/blog/blogModel";
 import {
   Blog,
   BlogCreationData,
+  BlogQueryParams,
   Blog as BlogType,
 } from "@/common/types/blog/blogTypes";
 import connectToMongoDb from "@/frontend/lib/mongodb";
 import { getLocalBlogs } from "@/frontend/lib/redux/blog/localBlogs";
 
-const getBlogs = async (skip: number, take: number): Promise<BlogType[]> => {
+const getBlogs = async ({
+  skip,
+  take,
+  tags,
+}: BlogQueryParams): Promise<BlogType[]> => {
   await connectToMongoDb();
-  const blogs = await BlogDAO.find({})
+  const query = BlogDAO.find({})
     .select("-content")
     .sort({ isPinned: -1, date: -1 })
     .skip(skip)
     .limit(take);
-  return blogs;
+  if (tags && tags.length > 0) {
+    const regexTags = tags.map((tag) => new RegExp(`^${tag}$`, "i"));
+    query.where({ tags: { $in: regexTags } });
+  }
+  return await query.exec();
 };
 
 const getBlogById = async (blogId: string): Promise<BlogType> => {

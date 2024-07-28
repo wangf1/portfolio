@@ -11,6 +11,12 @@ export interface Blog {
 
 export type BlogCreationData = Omit<Blog, "_id" | "date">;
 
+export interface BlogQueryParams {
+  skip: number;
+  take: number;
+  tags?: string[];
+}
+
 export interface BlogState {
   blogs: Blog[];
   selectedBlog?: Blog;
