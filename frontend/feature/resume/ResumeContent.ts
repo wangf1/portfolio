@@ -1,5 +1,5 @@
 export const ResumeContent = `
-# Skills
+# Skills <span style="position: relative; top: -2em; left: 0.2em; font-size: xx-small;">&#9733;</span>
 
 ### Programming Languages
 
@@ -31,6 +31,9 @@ export const ResumeContent = `
 - **Security:** OAuth, JWT, Spring Security, NextAuth, Clerk
 - **CI/CD:** Jenkins, GitLab, **Container**: Docker
 
+  <small>_&#9733; Note: Years of experience are adjusted based on actual proficiency, 
+  with average developer proficiency as a baseline. These figures are 
+  conservative and subject to change as experience increases._</small>
 ---
 
 # Work Experience
@@ -74,7 +77,7 @@ _July 2013 to June 2019, Shanghai, China_
 # Education
 
 - **Master's Degree** in Software Engineering, Shanghai Jiao Tong University, Shanghai, China, September 2005 - April 2008
-- **Bachelor's Degree** in Electronics and Communications Engineering, Tianjin University, Tianjin, China, September 1999 - June 2003
+- **Bachelor's Degree** in Electronics and Communications Engineering, Tianjin University, Tianjin, China, September 2000 - June 2003
 
 ---
 
