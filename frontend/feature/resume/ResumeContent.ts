@@ -1,5 +1,5 @@
 export const ResumeContent = `
-# Skills <span style="position: relative; top: -2em; left: 0.2em; font-size: xx-small;">&#9733;</span>
+# Skills <span style="position: relative; top: -2em; left: 0.2em; font-size: xx-small;">&#9733;1</span>
 
 ### Programming Languages
 
@@ -31,7 +31,7 @@ export const ResumeContent = `
 - **Security:** OAuth, JWT, Spring Security, NextAuth, Clerk
 - **CI/CD:** Jenkins, GitLab, **Container**: Docker
 
-  <small>_&#9733; Note: Years of experience are adjusted based on actual proficiency, 
+  <small>_&#9733;1 Note: Years of experience are adjusted based on actual proficiency, 
   with average developer proficiency as a baseline. These figures are 
   conservative and subject to change as experience increases._</small>
 ---
