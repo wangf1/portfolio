@@ -34,10 +34,11 @@ yarn dev
 - [Aceternity UI](https://ui.aceternity.com/): Grid and dot backgrounds,
   Spotlight.
 - [Material UI](https://mui.com/): Button, Card, Typography.
-- [React Markdown](https://github.com/remarkjs/react-markdown), rehype-raw,
-  remark-gfm: Markdown rendering.
+- [React Markdown](https://github.com/remarkjs/react-markdown), [rehype-raw](https://github.com/rehypejs/rehype-raw),
+  [remark-gfm](https://github.com/remarkjs/remark-gfm): Blog renderer.
 - [React Syntax Highlighter](https://github.com/react-syntax-highlighter):
   Code block syntax highlighting.
+- [React MD Editor](https://github.com/uiwjs/react-md-editor): Blog editor.
 
 ### Backend
 
