@@ -61,7 +61,7 @@ export default function Navbar() {
                 }
               )}
             >
-              <LinkIcon className="w-6 text-gray-600" />
+              <LinkIcon className="w-6 text-gray-400 md:text-gray-500" />
               <p className="hidden md:block">{link.name}</p>
             </Link>
           );

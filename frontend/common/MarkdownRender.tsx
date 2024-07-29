@@ -1,4 +1,5 @@
 import "@/frontend/common/MarkdownRender.css";
+import { cn } from "@/frontend/lib/utils";
 import { ClassAttributes, HTMLAttributes } from "react";
 import Markdown, { ExtraProps } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -35,9 +36,17 @@ const Code = ({
   );
 };
 
-const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
+interface MarkdownRendererProps {
+  content: string;
+  className?: string;
+}
+
+const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
+  content,
+  className,
+}: MarkdownRendererProps) => {
   return (
-    <article className="prose dark:prose-invert">
+    <article className={cn("prose dark:prose-invert", className)}>
       <Markdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw]}

@@ -3,43 +3,33 @@ export const ResumeContent = `
 
 ### Programming Languages
 
-- **Java 8/11/17:** 8+ years
-- **JavaScript:** 5 years
-- **TypeScript:** 2 years
-- **Python:** 2 years
-- **SQL:** 8+ years
+- **Java 8/11/17:** 8+ years, **JavaScript:** 5 years, **SQL:** 8+ years, 
+- **TypeScript:** 2 years, **Python:** 2 years
 - **Go, C#, Kotlin, Ruby:** Can pick up quickly (within one week)
 - **Rust, C, C++:** Can pick up relatively quickly (within one month)
 
-### Frameworks and Libraries
+### Frameworks, Libraries and Runtimes
 
-- **Spring Boot:** (8+ years)
-- **React:** (2 years)
-- **Node.js:** (2 years)
-- **Django:** (1 year)
-- **Next.js:** (1 year)
-- **JPA, Redux, Prisma, Drizzle, Mongoose, CSS, Tailwind, MUI:** 0.5 ~ 2 years
+- **Spring Boot:** (8+ years), **React:** (2 years), **Node.js:** (2 years)
+- **Django:** (1 year), **Next.js:** (1 year), **Express:** (0.5 year)
+- **JPA, Redux, Prisma, Drizzle, Mongoose, Tailwind CSS, MUI:** 0.5 ~ 2 years
 
 ### Tools
 
-- **Git:** (8+ years)
-- **IntelliJ IDEA:** (8+ years)
-- **VS Code:** (5 years)
-- **PyCharm:** (2 years)
+- **Git:** (8+ years), **IntelliJ IDEA:** (8+ years)
+- **VS Code:** (5 years), **PyCharm:** (2 years)
 - **BDever, Postman, Studio 3T, etc:** (0.5 ~ 5 years)
 
-### Methodologies, Cloud, Databases, Event Systems, Caching, Testing, Build Tools, Security, Container, CI/CD, etc.
+### Others
 
 - **Methodologies:** Agile, Scrum, Design Pattern
 - **Cloud Platforms:** SAP Cloud Platform, Cloud Foundry, AWS, Azure
 - **Databases:** SAP HANA, PostgreSQL, MongoDB, MySQL
-- **Event Systems:** Kafka, RabbitMQ
-- **Caching:** Redis
+- **Event Systems:** Kafka, RabbitMQ, **Caching:** Redis
 - **Testing:** Mockito, Mocha, Jest
 - **Build Tools:** Gradle, Maven, npm, yarn, etc.
 - **Security:** OAuth, JWT, Spring Security, NextAuth, Clerk
-- **Container**: Docker
-- **CI/CD:** Jenkins, GitLab
+- **CI/CD:** Jenkins, GitLab, **Container**: Docker
 
 ---
 
