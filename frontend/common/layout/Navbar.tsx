@@ -40,8 +40,8 @@ export default function Navbar() {
   });
 
   return (
-    <nav className="flex p-4">
-      <div className="w-[90%] flex items-center justify-center gap-4 flex-grow">
+    <nav className="relative flex items-center justify-between p-4">
+      <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-4">
         {filteredLinks.map((link) => {
           const LinkIcon = link.icon;
           return (
@@ -67,7 +67,7 @@ export default function Navbar() {
           );
         })}
       </div>
-      <div className="w-[10%] ml-auto">
+      <div className="ml-auto">
         <ThemeSwitcher />
       </div>
     </nav>

@@ -49,11 +49,11 @@ export default function ShortCard({ short }: ShortCardProps) {
   return (
     <Card
       sx={{
-        maxWidth: 345,
         marginBottom: 2,
         borderRadius: 2,
         backgroundColor: "transparent",
       }}
+      className="min-w-[500px]"
     >
       <CardContent>
         <Box>

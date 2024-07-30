@@ -35,10 +35,18 @@ export default function ShortList() {
   }, [handleScroll]);
 
   return (
-    <div className="flex flex-col items-center animate-focusIn my-8">
-      {shorts.map((short) => (
-        <ShortCard key={short._id} short={short} />
-      ))}
+    <div className="flex justify-center w-full">
+      <div className="flex flex-wrap gap-4 justify-center w-full max-w-6xl">
+        {shorts.map((short) => (
+          <div
+            key={short._id}
+            className="w-full w-1/1 lg:w-1/2 2xl:w-1/3 p-2 mx-4 
+              min-w-[500px] max-w-[600px] animate-focusIn"
+          >
+            <ShortCard short={short} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
