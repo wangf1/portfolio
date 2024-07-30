@@ -35,6 +35,7 @@ export const ResumeContent = `
   with average developer proficiency as a baseline. These figures are 
   conservative and subject to change as experience increases.</small>
 </div>
+
 ---
 
 # Work Experience
