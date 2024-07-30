@@ -18,6 +18,16 @@ const config = {
   safelist: [
     // As dynamic contents used, keep some common styles here, to avoid
     // be purged by TailwindCSS
+    "text-green-500",
+    "text-blue-500",
+    "text-orange-500",
+    "text-lime-500",
+    "text-red-500",
+    "text-sky-500",
+    "text-violet-500",
+    "text-yellow-500",
+    "text-pink-500",
+    "text-teal-500",
     "dark:text-blue-200",
     "text-blue-950",
     "text-lg",
