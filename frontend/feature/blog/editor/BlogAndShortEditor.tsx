@@ -45,7 +45,7 @@ export default function BlogAndShortEditor() {
 
   const getNonEmptyTags = (tags: string) => {
     return tags
-      .split(",")
+      .split(/[,，]/)
       .map((tag) => tag.trim())
       .filter((tag) => tag !== "");
   };

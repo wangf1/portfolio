@@ -52,8 +52,6 @@ export default function ShortList() {
               <Skeleton
                 key={nanoid()}
                 variant="rounded"
-                width={490}
-                height={170}
                 animation="wave"
                 sx={{ borderRadius: "16px" }}
               />
