@@ -1,6 +1,8 @@
 import {
+  batchSize,
   Short,
   ShortCreationData,
+  ShortQueryParams,
   ShortState,
 } from "@/common/types/short/shortTypes";
 import { toast } from "@/frontend/ui/use-toast";
@@ -17,10 +19,15 @@ const createShort = createAsyncThunk<Short, ShortCreationData>(
   }
 );
 
-const fetchShorts = createAsyncThunk<Short[], void>(
+const fetchShorts = createAsyncThunk<Short[], ShortQueryParams>(
   "shorts/fetchShorts",
-  async () => {
-    const response = await axios.get<Short[]>(BASE_URL);
+  async ({ skip, take, tags }: ShortQueryParams) => {
+    const queryParams = new URLSearchParams({
+      skip: skip.toString(),
+      take: take.toString(),
+      ...(tags && tags.length > 0 ? { tags: tags.join(",") } : {}),
+    });
+    const response = await axios.get<Short[]>(`${BASE_URL}?${queryParams}`);
     return response.data;
   }
 );
@@ -51,6 +58,29 @@ const commentsSlice = createSlice({
           description: "Something went wrong while creating the short",
           duration: 3000,
         });
+      })
+      .addCase(fetchShorts.fulfilled, (state, action) => {
+        state.status = "idle";
+        // Function to filter new shorts against the last <batchSize> items.
+        // This helps to avoid duplicates when fetching the same batch multiple
+        // times, while maintaining good performance and accuracy.
+        // Sometimes especially in development env, useEffect could be called
+        // multiple times for same state change.
+        function filterAgainstLastBatch() {
+          const last10Shorts = state.shorts.slice(-batchSize);
+
+          const existingShortsMap = new Map(
+            last10Shorts.map((short) => [short._id, short])
+          );
+
+          const newShorts = action.payload.filter(
+            (short) => !existingShortsMap.has(short._id)
+          );
+          return newShorts;
+        }
+        const newShorts = filterAgainstLastBatch();
+
+        state.shorts = [...state.shorts, ...newShorts];
       });
   },
 });

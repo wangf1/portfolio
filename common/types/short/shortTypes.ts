@@ -8,8 +8,16 @@ export interface Short {
 
 export type ShortCreationData = Omit<Short, "_id" | "date">;
 
+export interface ShortQueryParams {
+  skip: number;
+  take: number;
+  tags?: string[];
+}
+
 export interface ShortState {
   shorts: Short[];
   status: "idle" | "loading" | "succeeded" | "failed";
   error?: string;
 }
+
+export const batchSize = 10;

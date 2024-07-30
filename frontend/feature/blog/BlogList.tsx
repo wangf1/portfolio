@@ -7,8 +7,8 @@ import {
   fetchBlogs,
 } from "@/frontend/lib/redux/blog/blogsSlice";
 import { Pagination, Skeleton, Stack } from "@mui/material";
+import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
-const { nanoid } = require("nanoid");
 
 export default function BlogList() {
   const blogs = useAppSelector((state) => state.blogs.blogs);
@@ -38,7 +38,7 @@ export default function BlogList() {
         {Array.from({ length: 5 }).map((_, index) => (
           <div key={nanoid()} className="mb-2">
             <Skeleton
-              key={nanoid}
+              key={nanoid()}
               variant="rounded"
               width={800}
               height={170}

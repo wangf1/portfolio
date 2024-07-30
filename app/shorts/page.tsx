@@ -1,3 +1,5 @@
+import ShortList from "@/frontend/feature/short/ShortList";
+
 export default function ShotsPage() {
-  return <div>page</div>;
+  return <ShortList />;
 }
