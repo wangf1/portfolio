@@ -42,8 +42,8 @@ export default function Navbar() {
   });
 
   return (
-    <nav className="relative flex items-center justify-between p-4">
-      <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-4">
+    <nav className="flex p-4">
+      <div className="w-full flex items-center justify-center gap-4 flex-grow">
         {filteredLinks.map((link) => {
           const LinkIcon = link.icon;
           return (
