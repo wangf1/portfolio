@@ -37,7 +37,9 @@ export default function ShortList() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  if (status === "fetching_shorts") {
+  //Only show loading indicator for initial fetch, if show loading indicator
+  // page will be refreshed for scroll event triggered fetching.
+  if (status === "fetching_shorts" && currentBatch === 1) {
     return (
       <div className="flex justify-center w-full">
         <div className="flex flex-wrap gap-4 justify-center w-full max-w-6xl">
