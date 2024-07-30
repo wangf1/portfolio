@@ -1,7 +1,6 @@
 "use client";
 
 import { BLOG_V2_PATH } from "@/app/blog-v2/current_path";
-import { SHORTS_PATH } from "@/app/shorts/shorts_path";
 import { BlogCreationData } from "@/common/types/blog/blogTypes";
 import { ShortCreationData } from "@/common/types/short/shortTypes";
 import { exampleMarkdown } from "@/frontend/feature/blog/editor/example_markdown_content";
@@ -38,7 +37,9 @@ export default function BlogAndShortEditor() {
       router.push(BLOG_V2_PATH);
     } else if (shortCreationStatus === "succeeded") {
       // Redirect to the short list page
-      router.push(SHORTS_PATH);
+      // I do not want to redirect to the short list page anymore,
+      // because I want create multiple shorts at the same time.
+      // router.push(SHORTS_PATH);
     }
   }, [blogCreationStatus, shortCreationStatus]);
 
