@@ -22,7 +22,7 @@ const createComment = async (
   await connectToMongoDb();
   const newComment = new BlogCommentDAO({
     ...commentData,
-    date: new Date().toISOString(),
+    date: new Date(),
   });
   await newComment.save();
 

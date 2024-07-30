@@ -5,7 +5,7 @@ const blog: Blog = {
   _id: randomMongoDocId(),
   readableId: "2024-07-18_dial_pad",
   title: "A small dial pad",
-  date: "2024-07-18T19:11:08Z",
+  date: new Date("2024-07-18T19:11:08Z"),
   tags: ["React", "Programming", "Tailwind", "Redux"],
   summary: "A small dial pad implemented with React, Tailwind CSS, and Redux.",
   content: `

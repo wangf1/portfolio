@@ -66,7 +66,7 @@ const createShort = async (data: ShortCreationData): Promise<Short> => {
   await connectToMongoDb();
   const newShort = new ShortDAO({
     ...data,
-    date: new Date().toISOString(),
+    date: new Date(),
   });
 
   await newShort.save();

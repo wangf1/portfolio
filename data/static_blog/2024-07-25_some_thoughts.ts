@@ -5,7 +5,7 @@ const blog: Blog = {
   _id: randomMongoDocId(),
   readableId: "2024-07-25_some_thoughts",
   title: "Some thoughts",
-  date: "2024-07-25T16:28:17Z",
+  date: new Date("2024-07-25T16:28:17Z"),
   tags: ["Philosophy", "Politics", "Justice", "Stories", "MongoDB"],
   summary: "A mix of recent thoughts",
   content: `    

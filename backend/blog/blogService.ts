@@ -44,7 +44,7 @@ const createBlog = async (data: BlogCreationData): Promise<Blog> => {
 
   const newBlog = new BlogDAO({
     ...data,
-    date: new Date().toISOString(),
+    date: new Date(),
   });
 
   await newBlog.save();

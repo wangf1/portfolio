@@ -16,7 +16,7 @@ import { format } from "date-fns";
 interface TipTapProps {
   readonly?: boolean;
   author?: string;
-  date?: string;
+  date?: Date;
   text?: string;
   blogId?: string;
 }
@@ -24,7 +24,7 @@ interface TipTapProps {
 const Tiptap = ({
   readonly = false,
   author = "Unknown Author",
-  date = new Date().toISOString(),
+  date = new Date(),
   text,
   blogId,
 }: TipTapProps) => {

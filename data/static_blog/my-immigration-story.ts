@@ -5,7 +5,7 @@ const blog: Blog = {
   _id: randomMongoDocId(),
   readableId: "2024-07-16_my-immigration-story",
   title: "Immigration Is Not an Easy Journey",
-  date: "2024-07-16T14:41:08Z",
+  date: new Date("2024-07-16T14:41:08Z"),
   tags: ["Personal", "Stories", "Immigration"],
   isPinned: true,
   summary:

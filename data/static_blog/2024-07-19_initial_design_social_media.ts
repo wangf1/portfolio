@@ -5,7 +5,7 @@ const blog: Blog = {
   _id: randomMongoDocId(),
   readableId: "2024-07-19_initial_design_social_media",
   title: "Design a social media app",
-  date: "2024-07-19T22:15:21Z",
+  date: new Date("2024-07-19T22:15:21Z"),
   tags: [
     "Design",
     "Programming",

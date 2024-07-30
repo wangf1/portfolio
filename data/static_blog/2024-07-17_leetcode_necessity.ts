@@ -6,7 +6,7 @@ const blog: Blog = {
   readableId: "2024-07-17_leetcode_necessity",
   title: "About Practicing on LeetCode",
   tags: ["Thoughts", "Programming", "LeetCode"],
-  date: "2024-07-17T17:37:53Z",
+  date: new Date("2024-07-17T17:37:53Z"),
   summary: "Should I do practice on LeetCode?",
   content: `
 ### Is it Necessary for Programmers to Practice on LeetCode if Not Preparing for Interviews?
