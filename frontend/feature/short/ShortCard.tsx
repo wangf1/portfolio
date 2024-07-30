@@ -13,6 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import { format } from "date-fns";
+import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
 
 interface ShortCardProps {
@@ -79,13 +80,11 @@ export default function ShortCard({ short }: ShortCardProps) {
         {Array.isArray(short.tags) && short.tags.length > 0 && (
           <div style={{ marginTop: 10 }}>
             {short.tags.map((tag) => (
-              <Chip key={tag} label={tag} style={{ margin: 2 }} />
+              <Chip key={nanoid()} label={tag} style={{ margin: 2 }} />
             ))}
           </div>
         )}
-        <Typography variant="body2" color="text.secondary" paragraph>
-          <MarkdownRenderer content={short.content} />
-        </Typography>
+        <MarkdownRenderer content={short.content} />
       </CardContent>
 
       <CardContent

@@ -32,6 +32,14 @@ const fetchShorts = createAsyncThunk<Short[], ShortQueryParams>(
   }
 );
 
+const fetchShortsCount = createAsyncThunk<number, void>(
+  "shorts/fetchShortsCount",
+  async () => {
+    const response = await axios.get<number>(`${BASE_URL}count`);
+    return response.data;
+  }
+);
+
 const updateThumbs = createAsyncThunk<
   Short,
   { shortId: string; isThumbUp: boolean }
@@ -44,6 +52,7 @@ const updateThumbs = createAsyncThunk<
 
 const initialState: ShortState = {
   shorts: [],
+  shortsCount: 0,
   status: "idle",
 };
 
@@ -95,6 +104,9 @@ const commentsSlice = createSlice({
       .addCase(fetchShorts.pending, (state) => {
         state.status = "fetching_shorts";
       })
+      .addCase(fetchShortsCount.fulfilled, (state, action) => {
+        state.shortsCount = action.payload;
+      })
       .addCase(updateThumbs.pending, (state, action) => {
         state.status = "loading";
       })
@@ -109,5 +121,5 @@ const commentsSlice = createSlice({
   },
 });
 
-export { createShort, fetchShorts, updateThumbs };
+export { createShort, fetchShorts, fetchShortsCount, updateThumbs };
 export default commentsSlice.reducer;

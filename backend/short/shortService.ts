@@ -62,6 +62,12 @@ const getShorts = async (
   return await ShortDAO.aggregate(aggregationPipeline).exec();
 };
 
+const getShortsCount = async () => {
+  await connectToMongoDb();
+  const count = await ShortDAO.countDocuments();
+  return count;
+};
+
 const createShort = async (data: ShortCreationData): Promise<Short> => {
   await connectToMongoDb();
   const newShort = new ShortDAO({
@@ -91,6 +97,7 @@ const updateThumbs = async (shortId: string, isThumbUp: boolean) => {
 
 export default {
   getShorts,
+  getShortsCount,
   createShort,
   updateThumbs,
 };

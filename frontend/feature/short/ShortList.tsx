@@ -2,42 +2,82 @@
 import { batchSize } from "@/common/types/short/shortTypes";
 import ShortCard from "@/frontend/feature/short/ShortCard";
 import { useAppDispatch, useAppSelector } from "@/frontend/lib/hooks";
-import { fetchShorts } from "@/frontend/lib/redux/short/shortsSlice";
+import {
+  fetchShorts,
+  fetchShortsCount,
+} from "@/frontend/lib/redux/short/shortsSlice";
 import { Skeleton } from "@mui/material";
 import { nanoid } from "nanoid";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function ShortList() {
   const shorts = useAppSelector((state) => state.shorts.shorts);
+  const shortsCount = useAppSelector((state) => state.shorts.shortsCount);
   const status = useAppSelector((state) => state.shorts.status);
   const dispatch = useAppDispatch();
   const [currentBatch, setCurrentBatch] = useState(1);
+  const [isFetching, setIsFetching] = useState(false);
+
+  const shortsCountRef = useRef(shortsCount);
+  const currentBatchRef = useRef(currentBatch);
+  const isFetchingRef = useRef(isFetching);
 
   useEffect(() => {
-    dispatch(
-      fetchShorts({ skip: (currentBatch - 1) * batchSize, take: batchSize })
-    );
+    shortsCountRef.current = shortsCount;
+  }, [shortsCount]);
+
+  useEffect(() => {
+    currentBatchRef.current = currentBatch;
+  }, [currentBatch]);
+
+  useEffect(() => {
+    isFetchingRef.current = isFetching;
+  }, [isFetching]);
+
+  useEffect(() => {
+    if (!isFetchingRef.current) {
+      setIsFetching(true);
+      dispatch(
+        fetchShorts({ skip: (currentBatch - 1) * batchSize, take: batchSize })
+      );
+      dispatch(fetchShortsCount()).finally(() => {
+        return setIsFetching(false);
+      });
+    }
   }, [currentBatch]);
 
   // handle scroll event
-  const handleScroll = useCallback(() => {
+  const increaseCurrentBatchIfNeeded = () => {
+    const allBatches = Math.ceil(shortsCountRef.current / batchSize);
+    const currentBatchFromRef = currentBatchRef.current;
+
+    if (currentBatchFromRef >= allBatches || isFetchingRef.current) {
+      // No more batches to fetch or currently fetching
+      return;
+    }
+
     const scrollTop = window.scrollY;
     const windowHeight = window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
 
     // Check if the user has scrolled to the bottom
     if (scrollTop + windowHeight >= documentHeight - 200) {
-      setCurrentBatch((prevBatch) => prevBatch + 1);
+      const nextBatch = currentBatchFromRef + 1;
+      setCurrentBatch(nextBatch);
     }
+  };
+
+  const scrollListener = useCallback(() => {
+    increaseCurrentBatchIfNeeded();
   }, []);
 
   // Attach the scroll event listener
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+    window.addEventListener("scroll", scrollListener);
+    return () => window.removeEventListener("scroll", scrollListener);
+  }, [scrollListener]);
 
-  //Only show loading indicator for initial fetch, if show loading indicator
+  // Only show loading indicator for initial fetch, if show loading indicator
   // page will be refreshed for scroll event triggered fetching.
   if (status === "fetching_shorts" && currentBatch === 1) {
     return (

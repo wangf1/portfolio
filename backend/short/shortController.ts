@@ -12,6 +12,18 @@ const getShorts = async (skip: number, take: number) => {
   }
 };
 
+const getShortsCount = async () => {
+  try {
+    const shortsCount = await shortService.getShortsCount();
+    return Response.json(shortsCount);
+  } catch (error) {
+    console.log(error);
+    return new Response("Error fetching shorts count", {
+      status: 500,
+    });
+  }
+};
+
 const createShort = async (req: Request) => {
   try {
     const body = await req.json();
@@ -43,4 +55,5 @@ export default {
   getShorts,
   createShort,
   updateThumbs,
+  getShortsCount,
 };
