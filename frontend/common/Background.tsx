@@ -24,6 +24,7 @@ const Background = () => {
       <div
         className={`absolute inset-0 flex items-center justify-center
         bg-background dark:bg-grid-white/[0.2] bg-grid-black/[0.2]
+        opacity-70 dark:opacity-0
         dark:[mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]`}
       >
         {/* Radial gradient for the container to give a faded look */}

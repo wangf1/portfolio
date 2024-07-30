@@ -40,8 +40,8 @@ export default function BlogList() {
             <Skeleton
               key={nanoid}
               variant="rounded"
-              width={600}
-              height={118}
+              width={800}
+              height={170}
               animation="wave"
               sx={{ borderRadius: "16px" }}
             />
