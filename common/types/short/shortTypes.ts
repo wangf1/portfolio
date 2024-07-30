@@ -18,7 +18,7 @@ export interface ShortQueryParams {
 
 export interface ShortState {
   shorts: Short[];
-  status: "idle" | "loading" | "succeeded" | "failed";
+  status: "idle" | "loading" | "fetching_shorts" | "succeeded" | "failed";
   error?: string;
 }
 

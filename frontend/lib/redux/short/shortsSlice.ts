@@ -93,7 +93,7 @@ const commentsSlice = createSlice({
         state.shorts = [...state.shorts, ...newShorts];
       })
       .addCase(fetchShorts.pending, (state) => {
-        state.status = "loading";
+        state.status = "fetching_shorts";
       })
       .addCase(updateThumbs.pending, (state, action) => {
         state.status = "loading";

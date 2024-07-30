@@ -37,7 +37,7 @@ export default function ShortList() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  if (status === "loading") {
+  if (status === "fetching_shorts") {
     return (
       <div className="flex justify-center w-full">
         <div className="flex flex-wrap gap-4 justify-center w-full max-w-6xl">
