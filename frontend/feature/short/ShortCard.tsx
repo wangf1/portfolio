@@ -66,7 +66,6 @@ export default function ShortCard({ short }: ShortCardProps) {
         borderRadius: 2,
         backgroundColor: "transparent",
       }}
-      className="min-w-[500px]"
     >
       <CardContent>
         <Box>

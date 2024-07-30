@@ -45,7 +45,7 @@ export default function ShortList() {
             <div
               key={nanoid()}
               className="w-full w-1/1 lg:w-1/2 2xl:w-1/3 p-2 mx-4 
-                min-w-[500px] max-w-[600px] animate-focusIn"
+                max-w-[600px] animate-focusIn"
             >
               <Skeleton
                 key={nanoid()}
@@ -69,7 +69,7 @@ export default function ShortList() {
           <div
             key={short._id}
             className="w-full w-1/1 lg:w-1/2 2xl:w-1/3 p-2 mx-4 
-              min-w-[500px] max-w-[600px] animate-focusIn"
+              max-w-[600px] animate-focusIn"
           >
             <ShortCard short={short} />
           </div>
