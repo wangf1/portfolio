@@ -33,9 +33,6 @@ export default function ShortCard({ short }: ShortCardProps) {
       setThumbUpDisabled(false);
       setThumbDownDisabled(false);
     }
-  }, [status]);
-
-  useEffect(() => {
     const thumbUps = short.thumbUps ?? 0;
     const thumbDowns = short.thumbDowns ?? 0;
     if (thumbUps >= 50) {
@@ -46,7 +43,7 @@ export default function ShortCard({ short }: ShortCardProps) {
       setThumbDownDisabled(true);
       setShowThumbDownTooltip(true);
     }
-  }, [short.thumbUps, short.thumbDowns]);
+  }, [short.thumbUps, short.thumbDowns, status]);
 
   const handleThumbUpOrDown = (isThumbUp: boolean) => {
     if (isThumbUp) {
