@@ -25,6 +25,8 @@ export default function ShortCard({ short }: ShortCardProps) {
 
   const [thumbUpDisabled, setThumbUpDisabled] = useState(false);
   const [thumbDownDisabled, setThumbDownDisabled] = useState(false);
+  const [showThumbUpTooltip, setShowThumbUpTooltip] = useState(false);
+  const [showThumbDownTooltip, setShowThumbDownTooltip] = useState(false);
 
   useEffect(() => {
     if (status !== "loading") {
@@ -38,9 +40,11 @@ export default function ShortCard({ short }: ShortCardProps) {
     const thumbDowns = short.thumbDowns ?? 0;
     if (thumbUps >= 50) {
       setThumbUpDisabled(true);
+      setShowThumbUpTooltip(true);
     }
     if (thumbDowns >= 20) {
       setThumbDownDisabled(true);
+      setShowThumbDownTooltip(true);
     }
   }, [short.thumbUps, short.thumbDowns]);
 
@@ -99,7 +103,7 @@ export default function ShortCard({ short }: ShortCardProps) {
           <Tooltip
             title={
               <div className="text-lg">
-                {thumbUpDisabled
+                {showThumbUpTooltip
                   ? "Thumb Up limit reached! Time for a break! 🥳"
                   : ""}
               </div>
@@ -127,7 +131,7 @@ export default function ShortCard({ short }: ShortCardProps) {
           <Tooltip
             title={
               <div className="text-lg">
-                {thumbDownDisabled
+                {showThumbDownTooltip
                   ? "Thumb Down limit reached! That's enough! 😅"
                   : ""}
               </div>
