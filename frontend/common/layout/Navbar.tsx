@@ -9,6 +9,7 @@ import {
   NotebookPen,
   PencilRuler,
   UserRoundPen,
+  ZapIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,6 +18,7 @@ const links = [
   { name: "About Me", href: "/about_me", icon: UserRoundPen },
   { name: "Experience", href: "/experience", icon: PencilRuler },
   { name: "Blog", href: "/blog-v2", icon: NotebookPen },
+  { name: "Shorts", href: "/shorts", icon: ZapIcon },
   { name: "Contact", href: "/contact", icon: Mail },
   {
     name: "Blog Editor",
