@@ -3,7 +3,7 @@ export interface BlogComment {
   postId: string;
   text: string;
   author: string;
-  date: string;
+  date: Date;
 }
 
 export interface BlogCommentState {

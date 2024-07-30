@@ -2,7 +2,7 @@ export interface Blog {
   _id: string;
   readableId: string;
   title: string;
-  date: string;
+  date: Date;
   summary: string;
   tags: string[];
   content: string;

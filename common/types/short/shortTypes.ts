@@ -1,6 +1,6 @@
 export interface Short {
   _id: string;
-  date: string;
+  date: Date;
   tags: string[];
   content: string;
   isPinned?: boolean;

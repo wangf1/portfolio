@@ -4,7 +4,7 @@ import mongoose, { Document, ObjectId, Schema } from "mongoose";
 interface ShortDocument extends Document<ObjectId>, Omit<Short, "_id"> {}
 
 const ShortSchema: Schema = new Schema({
-  date: { type: String, required: true },
+  date: { type: Date, required: true },
   tags: { type: [String], required: true },
   content: { type: String, required: true },
   isPinned: { type: Boolean },
