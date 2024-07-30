@@ -42,12 +42,19 @@ export default function BlogAndShortEditor() {
     }
   }, [blogCreationStatus, shortCreationStatus]);
 
+  const getNonEmptyTags = (tags: string) => {
+    return tags
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag !== "");
+  };
+
   const saveBlog = async () => {
     const blogData: BlogCreationData = {
       title,
       readableId: title.replaceAll(" ", "_").toLowerCase(),
       summary,
-      tags: tags.split(",").map((tag) => tag.trim()),
+      tags: getNonEmptyTags(tags),
       isPinned,
       content,
     };
@@ -56,7 +63,7 @@ export default function BlogAndShortEditor() {
 
   const saveShort = async () => {
     const shortData: ShortCreationData = {
-      tags: tags.split(",").map((tag) => tag.trim()),
+      tags: getNonEmptyTags(tags),
       isPinned,
       content,
     };

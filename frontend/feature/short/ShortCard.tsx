@@ -76,11 +76,13 @@ export default function ShortCard({ short }: ShortCardProps) {
             </Typography>
           )}
         </Box>
-        <div style={{ marginTop: 10 }}>
-          {short.tags.map((tag) => (
-            <Chip key={tag} label={tag} style={{ margin: 2 }} />
-          ))}
-        </div>
+        {Array.isArray(short.tags) && short.tags.length > 0 && (
+          <div style={{ marginTop: 10 }}>
+            {short.tags.map((tag) => (
+              <Chip key={tag} label={tag} style={{ margin: 2 }} />
+            ))}
+          </div>
+        )}
         <Typography variant="body2" color="text.secondary" paragraph>
           <MarkdownRenderer content={short.content} />
         </Typography>
