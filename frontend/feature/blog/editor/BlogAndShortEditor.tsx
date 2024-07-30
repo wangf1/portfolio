@@ -57,6 +57,7 @@ export default function BlogAndShortEditor() {
   const saveShort = async () => {
     const shortData: ShortCreationData = {
       tags: tags.split(",").map((tag) => tag.trim()),
+      isPinned,
       content,
     };
     dispatch(createShort(shortData));

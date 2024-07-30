@@ -25,7 +25,22 @@ const createShort = async (req: Request) => {
   }
 };
 
+const updateThumbs = async (shortId: string, req: Request) => {
+  try {
+    const body = await req.json();
+    const { isThumbUp } = body;
+    const short = await shortService.updateThumbs(shortId, isThumbUp);
+    return Response.json(short);
+  } catch (error) {
+    console.log(error);
+    return new Response("Error updating thumbs", {
+      status: 500,
+    });
+  }
+};
+
 export default {
   getShorts,
   createShort,
+  updateThumbs,
 };

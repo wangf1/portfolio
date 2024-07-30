@@ -16,6 +16,7 @@ const getBlogs = async ({
   await connectToMongoDb();
   const query = BlogDAO.find({})
     .select("-content")
+    // Sort by isPinned (pinned items appear first) and date (newest first)
     .sort({ isPinned: -1, date: -1 })
     .skip(skip)
     .limit(take);

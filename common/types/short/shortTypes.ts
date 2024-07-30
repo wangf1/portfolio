@@ -4,6 +4,8 @@ export interface Short {
   tags: string[];
   content: string;
   isPinned?: boolean;
+  thumbUps?: number;
+  thumbDowns?: number;
 }
 
 export type ShortCreationData = Omit<Short, "_id" | "date">;

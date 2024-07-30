@@ -8,6 +8,8 @@ const ShortSchema: Schema = new Schema({
   tags: { type: [String], required: true },
   content: { type: String, required: true },
   isPinned: { type: Boolean },
+  thumbUps: { type: Number },
+  thumbDowns: { type: Number },
 });
 
 const ShortDAO =

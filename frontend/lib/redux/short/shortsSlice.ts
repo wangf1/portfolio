@@ -32,6 +32,16 @@ const fetchShorts = createAsyncThunk<Short[], ShortQueryParams>(
   }
 );
 
+const updateThumbs = createAsyncThunk<
+  Short,
+  { shortId: string; isThumbUp: boolean }
+>("shorts/updateThumbs", async ({ shortId, isThumbUp }) => {
+  const response = await axios.post(`${BASE_URL}${shortId}/thumbs`, {
+    isThumbUp,
+  });
+  return response.data;
+});
+
 const initialState: ShortState = {
   shorts: [],
   status: "idle",
@@ -81,9 +91,20 @@ const commentsSlice = createSlice({
         const newShorts = filterAgainstLastBatch();
 
         state.shorts = [...state.shorts, ...newShorts];
+      })
+      .addCase(updateThumbs.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(updateThumbs.fulfilled, (state, action) => {
+        state.status = "idle";
+        const short = state.shorts.find((s) => s._id === action.payload._id);
+        if (short) {
+          short.thumbUps = action.payload.thumbUps;
+          short.thumbDowns = action.payload.thumbDowns;
+        }
       });
   },
 });
 
-export { createShort, fetchShorts };
+export { createShort, fetchShorts, updateThumbs };
 export default commentsSlice.reducer;
