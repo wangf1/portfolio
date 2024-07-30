@@ -9,6 +9,7 @@ import {
   CardContent,
   Chip,
   IconButton,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import { format } from "date-fns";
@@ -31,6 +32,17 @@ export default function ShortCard({ short }: ShortCardProps) {
       setThumbDownDisabled(false);
     }
   }, [status]);
+
+  useEffect(() => {
+    const thumbUps = short.thumbUps ?? 0;
+    const thumbDowns = short.thumbDowns ?? 0;
+    if (thumbUps >= 50) {
+      setThumbUpDisabled(true);
+    }
+    if (thumbDowns >= 20) {
+      setThumbDownDisabled(true);
+    }
+  }, [short.thumbUps, short.thumbDowns]);
 
   const handleThumbUpOrDown = (isThumbUp: boolean) => {
     if (isThumbUp) {
@@ -82,13 +94,25 @@ export default function ShortCard({ short }: ShortCardProps) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
-          <IconButton
-            color="success"
-            onClick={() => handleThumbUpOrDown(true)}
-            disabled={thumbUpDisabled}
+          <Tooltip
+            title={
+              <div className="text-lg">
+                {thumbUpDisabled
+                  ? "Thumb Up limit reached! Time for a break! 🥳"
+                  : ""}
+              </div>
+            }
           >
-            <ThumbUp />
-          </IconButton>
+            <span>
+              <IconButton
+                color="success"
+                onClick={() => handleThumbUpOrDown(true)}
+                disabled={thumbUpDisabled}
+              >
+                <ThumbUp />
+              </IconButton>
+            </span>
+          </Tooltip>
           <Typography
             variant="caption"
             color="text.secondary"
@@ -98,13 +122,25 @@ export default function ShortCard({ short }: ShortCardProps) {
           </Typography>
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <IconButton
-            color="warning"
-            onClick={() => handleThumbUpOrDown(false)}
-            disabled={thumbDownDisabled}
+          <Tooltip
+            title={
+              <div className="text-lg">
+                {thumbDownDisabled
+                  ? "Thumb Down limit reached! That's enough! 😅"
+                  : ""}
+              </div>
+            }
           >
-            <ThumbDown />
-          </IconButton>
+            <span>
+              <IconButton
+                color="warning"
+                onClick={() => handleThumbUpOrDown(false)}
+                disabled={thumbDownDisabled}
+              >
+                <ThumbDown />
+              </IconButton>
+            </span>
+          </Tooltip>
           <Typography
             variant="caption"
             color="text.secondary"
