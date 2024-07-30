@@ -19,6 +19,7 @@ export interface BlogQueryParams {
 
 export interface BlogState {
   blogs: Blog[];
+  blogCount: number;
   selectedBlog?: Blog;
   status: "idle" | "loading" | "succeeded" | "failed";
   error?: string;

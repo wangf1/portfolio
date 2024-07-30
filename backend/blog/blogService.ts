@@ -26,6 +26,12 @@ const getBlogs = async ({
   return await query.exec();
 };
 
+const getBlogCount = async (): Promise<number> => {
+  await connectToMongoDb();
+  const count = await BlogDAO.countDocuments();
+  return count;
+};
+
 const getBlogById = async (blogId: string): Promise<BlogType> => {
   await connectToMongoDb();
   const blog = await BlogDAO.findOne({ _id: blogId });
@@ -62,6 +68,7 @@ const syncAllLocalBlogsToMongo = async (): Promise<number> => {
 
 export default {
   getBlogs,
+  getBlogCount,
   getBlogById,
   createBlog,
   syncAllLocalBlogsToMongo,

@@ -10,6 +10,7 @@ import axios from "axios";
 
 const initialState: BlogState = {
   blogs: [],
+  blogCount: 0,
   status: "idle",
 };
 
@@ -34,6 +35,14 @@ const fetchBlogs = createAsyncThunk<Blog[], BlogQueryParams>(
     });
 
     const response = await axios.get<Blog[]>(`${BASE_URL}?${queryParams}`);
+    return response.data;
+  }
+);
+
+const fetchBlogCount = createAsyncThunk<number, void>(
+  "blogs/fetchBlogCount",
+  async () => {
+    const response = await axios.get<number>(BASE_URL + "count");
     return response.data;
   }
 );
@@ -82,6 +91,9 @@ const commentsSlice = createSlice({
         state.status = "idle";
         state.blogs = action.payload;
       })
+      .addCase(fetchBlogCount.fulfilled, (state, action) => {
+        state.blogCount = action.payload;
+      })
       .addCase(fetchBlogs.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
@@ -113,6 +125,12 @@ const commentsSlice = createSlice({
   },
 });
 
-export { createBlog, fetchBlogById, fetchBlogs, syncLocalBlogsToMongo };
+export {
+  createBlog,
+  fetchBlogById,
+  fetchBlogCount,
+  fetchBlogs,
+  syncLocalBlogsToMongo,
+};
 export const { clearSelectedBlog } = commentsSlice.actions;
 export default commentsSlice.reducer;

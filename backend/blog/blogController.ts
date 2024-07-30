@@ -28,6 +28,18 @@ const getBlogs = async (queryParams: BlogQueryParams) => {
   }
 };
 
+const getBlogCount = async () => {
+  try {
+    const blogCount = await blogService.getBlogCount();
+    return Response.json(blogCount);
+  } catch (error) {
+    console.log(error);
+    return new Response("Error fetching comments", {
+      status: 500,
+    });
+  }
+};
+
 const createBlog = async (req: Request) => {
   try {
     const body = await req.json();
@@ -56,6 +68,7 @@ const syncAllLocalBlogsToMongo = async (): Promise<Response> => {
 export default {
   getBlogById,
   getBlogs,
+  getBlogCount,
   createBlog,
   syncAllLocalBlogsToMongo,
 };

@@ -2,26 +2,35 @@
 import { BLOG_V2_PATH } from "@/app/blog-v2/current_path";
 import { BlogSummaryCard } from "@/frontend/feature/blog/BlogSummaryCard";
 import { useAppDispatch, useAppSelector } from "@/frontend/lib/hooks";
-import { fetchBlogs } from "@/frontend/lib/redux/blog/blogsSlice";
-import { Skeleton } from "@mui/material";
-import { useEffect } from "react";
+import {
+  fetchBlogCount,
+  fetchBlogs,
+} from "@/frontend/lib/redux/blog/blogsSlice";
+import { Pagination, Skeleton, Stack } from "@mui/material";
+import { useEffect, useState } from "react";
 const { nanoid } = require("nanoid");
 
 export default function BlogList() {
   const blogs = useAppSelector((state) => state.blogs.blogs);
   const status = useAppSelector((state) => state.blogs.status);
-
+  const blogCount = useAppSelector((state) => state.blogs.blogCount);
   const dispatch = useAppDispatch();
+
+  // In future may allow user choose page size, but for now is is not a priority
+  const pageSize = 5;
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     dispatch(
-      fetchBlogs({
-        // TODO: hard code for now, until after add pagination on UI
-        skip: 0,
-        take: 10,
-      })
+      fetchBlogs({ skip: (currentPage - 1) * pageSize, take: pageSize })
     );
-  }, []);
+    dispatch(fetchBlogCount());
+  }, [currentPage]);
+
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
 
   if (status === "loading") {
     return (
@@ -66,6 +75,15 @@ export default function BlogList() {
           />
         );
       })}
+      <Stack spacing={2} className="mt-4">
+        <Pagination
+          count={Math.ceil(blogCount / pageSize)}
+          page={currentPage}
+          onChange={handlePageChange}
+          variant="outlined"
+          shape="rounded"
+        />
+      </Stack>
     </div>
   );
 }
