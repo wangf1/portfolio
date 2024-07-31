@@ -80,26 +80,29 @@ const commentsSlice = createSlice({
       })
       .addCase(fetchShorts.fulfilled, (state, action) => {
         state.status = "idle";
+
         // Function to filter new shorts against the last <batchSize> items.
-        // This helps to avoid duplicates when fetching the same batch multiple
-        // times, while maintaining good performance and accuracy.
-        // Sometimes especially in development env, useEffect could be called
-        // multiple times for same state change.
         function filterAgainstLastBatch() {
           const last10Shorts = state.shorts.slice(-batchSize);
-
           const existingShortsMap = new Map(
             last10Shorts.map((short) => [short._id, short])
           );
 
-          const newShorts = action.payload.filter(
-            (short) => !existingShortsMap.has(short._id)
-          );
+          const newShorts = action.payload.filter((short) => {
+            const alreadyExistNeedFilterOut = existingShortsMap.has(short._id);
+            if (alreadyExistNeedFilterOut) {
+              console.log(
+                `Short with _id: ${short._id} already exists in Redux, skipping it...`
+              );
+            }
+            return !alreadyExistNeedFilterOut;
+          });
           return newShorts;
         }
-        const newShorts = filterAgainstLastBatch();
 
+        const newShorts = filterAgainstLastBatch();
         state.shorts = [...state.shorts, ...newShorts];
+        console.log(`Total shorts in Redux: ${state.shorts.length}`);
       })
       .addCase(fetchShorts.pending, (state) => {
         state.status = "fetching_shorts";
