@@ -35,13 +35,21 @@ export default function BlogList() {
   if (status === "loading") {
     return (
       <div className="flex flex-col items-center animate-focusIn m-4">
+        <div className="text-center mb-4 text-gray-700 dark:text-gray-500">
+          Fetching data from a{" "}
+          <strong className="text-green-500">free shared</strong> MongoDB Atlas
+          instance, so... 😅 ⏳🕺🎉
+        </div>
+
         {Array.from({ length: 5 }).map((_, index) => (
-          <div key={nanoid()} className="mb-2">
+          <div
+            key={nanoid()}
+            className="w-full w-1/1 lg:w-1/2 2xl:w-1/3 p-2 mx-4 
+                        max-w-[600px] animate-focusIn"
+          >
             <Skeleton
               key={nanoid()}
               variant="rounded"
-              width={800}
-              height={170}
               animation="wave"
               sx={{ borderRadius: "16px" }}
             />
