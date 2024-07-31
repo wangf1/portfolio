@@ -59,10 +59,6 @@ export default function BlogList() {
     return null;
   }
 
-  blogs.map((blog) => {
-    console.log(blog);
-  });
-
   return (
     <div className="flex flex-col items-center animate-focusIn my-8">
       {blogs.map((post) => {
