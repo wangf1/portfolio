@@ -79,7 +79,7 @@ _July 2013 to June 2019, Shanghai, China_
 # Education
 
 - **Master's Degree** in Software Engineering, Shanghai Jiao Tong University, Shanghai, China, September 2005 - April 2008
-- **Bachelor's Degree** in Electronics and Communications Engineering, Tianjin University, Tianjin, China, September 2000 - June 2003
+- **Bachelor's Degree** in Electronics and Communications Engineering, Tianjin University, Tianjin, China, September 1999 - June 2003
 
 ---
 
