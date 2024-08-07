@@ -4,12 +4,14 @@ import {
   BlogQueryParams,
   BlogState,
 } from "@/common/types/blog/blogTypes";
+import { RootState } from "@/frontend/lib/redux/store";
 import { toast } from "@/frontend/ui/use-toast";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState: BlogState = {
-  blogs: [],
+  blogs: {},
+  blogsForCurrentPage: [],
   blogCount: 0,
   status: "idle",
 };
@@ -25,9 +27,17 @@ const fetchBlogById = createAsyncThunk<Blog, string>(
   }
 );
 
-const fetchBlogs = createAsyncThunk<Blog[], BlogQueryParams>(
+const fetchBlogs = createAsyncThunk<
+  { blogs: Blog[]; page: number },
+  BlogQueryParams
+>(
   "blogs/fetchBlogs",
-  async ({ skip, take, tags }: BlogQueryParams) => {
+  async ({ skip, take, tags }: BlogQueryParams, { getState }) => {
+    const state = getState() as RootState;
+    const page = Math.floor(skip / take) + 1;
+    if (state.blogs.blogs[page] && state.blogs.blogs[page].length > 0) {
+      return { blogs: state.blogs.blogs[page], page };
+    }
     const queryParams = new URLSearchParams({
       skip: skip.toString(),
       take: take.toString(),
@@ -35,7 +45,7 @@ const fetchBlogs = createAsyncThunk<Blog[], BlogQueryParams>(
     });
 
     const response = await axios.get<Blog[]>(`${BASE_URL}?${queryParams}`);
-    return response.data;
+    return { blogs: response.data, page };
   }
 );
 
@@ -89,9 +99,16 @@ const commentsSlice = createSlice({
       })
       .addCase(fetchBlogs.fulfilled, (state, action) => {
         state.status = "idle";
-        state.blogs = action.payload;
+        const { blogs, page } = action.payload;
+        state.blogs[page] = blogs;
+        state.blogsForCurrentPage = state.blogs[page];
       })
       .addCase(fetchBlogCount.fulfilled, (state, action) => {
+        if (state.blogCount != action.payload) {
+          //Clear cached blogs if count has changed
+          state.blogs = {};
+          state.blogsForCurrentPage = [];
+        }
         state.blogCount = action.payload;
       })
       .addCase(fetchBlogs.rejected, (state, action) => {
@@ -100,7 +117,8 @@ const commentsSlice = createSlice({
       })
       .addCase(createBlog.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.blogs.push(action.payload);
+        state.blogs = {};
+        state.blogsForCurrentPage = [];
         toast({
           title: "Success",
           description: "Blog created successfully",

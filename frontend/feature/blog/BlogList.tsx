@@ -11,7 +11,7 @@ import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
 
 export default function BlogList() {
-  const blogs = useAppSelector((state) => state.blogs.blogs);
+  const blogs = useAppSelector((state) => state.blogs.blogsForCurrentPage);
   const status = useAppSelector((state) => state.blogs.status);
   const blogCount = useAppSelector((state) => state.blogs.blogCount);
   const dispatch = useAppDispatch();
@@ -22,11 +22,14 @@ export default function BlogList() {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
+    dispatch(fetchBlogCount());
+  }, [currentPage]);
+
+  useEffect(() => {
     dispatch(
       fetchBlogs({ skip: (currentPage - 1) * pageSize, take: pageSize })
     );
-    dispatch(fetchBlogCount());
-  }, [currentPage]);
+  }, [blogCount, currentPage]);
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);

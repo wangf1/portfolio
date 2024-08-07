@@ -18,7 +18,8 @@ export interface BlogQueryParams {
 }
 
 export interface BlogState {
-  blogs: Blog[];
+  blogs: { [key: number]: Blog[] };
+  blogsForCurrentPage: Blog[];
   blogCount: number;
   selectedBlog?: Blog;
   status: "idle" | "loading" | "succeeded" | "failed";
