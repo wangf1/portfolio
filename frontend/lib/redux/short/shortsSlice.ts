@@ -35,7 +35,9 @@ const fetchShorts = createAsyncThunk<Short[], ShortQueryParams>(
 const fetchShortsCount = createAsyncThunk<number, void>(
   "shorts/fetchShortsCount",
   async () => {
+    console.log("fetching shorts count...");
     const response = await axios.get<number>(`${BASE_URL}count`);
+    console.log(`shorts count: ${response.data}`);
     return response.data;
   }
 );

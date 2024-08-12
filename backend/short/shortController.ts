@@ -14,7 +14,9 @@ const getShorts = async (skip: number, take: number) => {
 
 const getShortsCount = async () => {
   try {
+    console.log("ShortController: getShortsCount...");
     const shortsCount = await shortService.getShortsCount();
+    console.log(`ShortController: getShortsCount: ${shortsCount}`);
     return Response.json(shortsCount);
   } catch (error) {
     console.log(error);

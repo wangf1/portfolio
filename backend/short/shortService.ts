@@ -64,7 +64,9 @@ const getShorts = async (
 
 const getShortsCount = async () => {
   await connectToMongoDb();
+  console.log("ShortService: getShortsCount...");
   const count = await ShortDAO.countDocuments();
+  console.log(`ShortService: getShortsCount: ${count}`);
   return count;
 };
 
