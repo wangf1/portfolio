@@ -21,9 +21,9 @@ I know where I come from, why I am here, and what I should do and enjoy. I will 
 
 # My Career Goals
 
-- **Master** full-stack development with a strong emphasis on frontend frameworks like **ReactJS**.
+- **Leverage and enhance** my expertise in **Java** enterprise development to drive innovation and deliver high-quality solutions.
 - **Explore and integrate** diverse tech stacks beyond the Java ecosystem, including TypeScript with Node.js, Python with Django, C# with .NET Core, and Ruby on Rails.
-- **Leverage and enhance** my expertise in Java enterprise development to drive innovation and deliver high-quality solutions.
+- **Master** full-stack development with a strong emphasis on frontend frameworks like **ReactJS**.
 - **Expand** my proficiency with leading cloud platforms such as AWS and Azure.
 - **Embrace** relocation opportunities within Canada as needed.
 - As a new immigrant, I am not yet settled in my current city and lack local work experience, so I am **flexible** regarding job location and level.
