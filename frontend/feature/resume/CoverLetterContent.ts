@@ -26,5 +26,5 @@ I know where I come from, why I am here, and what I should do and enjoy. I will 
 - **Master** full-stack development with a strong emphasis on frontend frameworks like **ReactJS**.
 - **Expand** my proficiency with leading cloud platforms such as AWS and Azure.
 - **Embrace** relocation opportunities within Canada as needed.
-- As a new immigrant, I am not yet settled in my current city and lack local work experience, so I am **flexible** regarding job location and level.
+- As a new immigrant, I am not yet settled in my current city and lack local work experience, so I am **flexible** regarding job location and compensation.
 `;
