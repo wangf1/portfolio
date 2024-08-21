@@ -9,6 +9,7 @@ export const piiStrings = [
   "permanent resident",
   "immigrant",
   "SAP",
+  "UI5",
   "HANA",
   "SAP SuccessFactors",
   /\b(19\d{2}|20\d{2})\b/g, // 4-digit year
