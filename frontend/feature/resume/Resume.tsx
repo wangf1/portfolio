@@ -1,7 +1,16 @@
 import { MarkdownRenderer } from "@/frontend/common/MarkdownRender";
+import { piiStrings } from "@/frontend/feature/resume/PIIData";
 import { ResumeContent } from "@/frontend/feature/resume/ResumeContent";
 
 export default function Resume() {
+  const hide = true;
+  let content = ResumeContent;
+  if (hide) {
+    for (const piiString of piiStrings) {
+      content = content.replaceAll(piiString, "******");
+    }
+  }
+
   return (
     <article
       className="flex flex-col items-center
@@ -9,7 +18,7 @@ export default function Resume() {
         dark:shadow-gray-700 shadow-lg animate-focusIn
         mb-10 lg:min-w-[840px]"
     >
-      <MarkdownRenderer content={ResumeContent} className="lg:min-w-[800px]" />
+      <MarkdownRenderer content={content} className="lg:min-w-[800px]" />
     </article>
   );
 }

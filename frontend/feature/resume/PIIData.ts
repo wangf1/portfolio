@@ -1,0 +1,21 @@
+export const piiStrings = [
+  "Mark Wang",
+  "Calgary",
+  "Canada",
+  "10 years",
+  "China",
+  "Shanghai",
+  "Canadian",
+  "permanent resident",
+  "immigrant",
+  "SAP",
+  "HANA",
+  "SAP SuccessFactors",
+  /\b(19\d{2}|20\d{2})\b/g, // 4-digit year
+  "Jiao Tong",
+  "Tianjin",
+  "Software Engineering",
+  "Electronics and Communications Engineering",
+  "https://www.linkedin.com/in/feng-wang-ba373633",
+  "https://github.com/wangf1",
+];

@@ -17,10 +17,11 @@ export default function Contact() {
         <li>
           <strong>Email:</strong>{" "}
           <a
-            href="mailto:armstrong.wang2000@gmail.com"
-            className="text-blue-500 dark:text-blue-300 hover:underline"
+            href="mailto:*@gmail.com"
+            className="text-blue-500 dark:text-blue-300 hover:underline 
+            pointer-events-none"
           >
-            armstrong.wang2000@gmail.com
+            *@gmail.com
           </a>
         </li>
         <li>
@@ -30,12 +31,14 @@ export default function Contact() {
           <div className="flex space-x-2 w-fit">
             <strong>Social Media:</strong>
             <a
-              href="https://www.linkedin.com/in/feng-wang-ba373633/"
+              href="https://www.linkedin.com/in/*"
               target="_blank"
               rel="noopener noreferrer"
-              className=" flex text-blue-500 dark:text-blue-300 hover:underline"
+              className=" flex text-blue-500 dark:text-blue-300 hover:underline
+                  pointer-events-none"
             >
               <LinkedinIcon />
+              (Hidden)
               <SquareArrowOutUpRightIcon size={15} />
             </a>
           </div>

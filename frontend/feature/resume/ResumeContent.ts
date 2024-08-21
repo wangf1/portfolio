@@ -85,7 +85,11 @@ _July 2013 to June 2019, Shanghai, China_
 
 # Links
 
-- <a href="https://www.linkedin.com/in/feng-wang-ba373633" target="_blank" rel="noopener noreferrer" className="text-blue-500 dark:text-blue-300 hover:underline flex items-center w-fit">LinkedIn Profile
+- <a href="https://www.linkedin.com/in/feng-wang-ba373633" 
+      style="pointer-events: none; color: gray;"
+      target="_blank" rel="noopener noreferrer" 
+      className="text-blue-500 dark:text-blue-300 
+      hover:underline flex items-center w-fit">LinkedIn Profile
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -95,7 +99,11 @@ _July 2013 to June 2019, Shanghai, China_
     <path d="M15 3h6v6" />
 </svg></a>
 
-- <a href="https://github.com/wangf1" target="_blank" rel="noopener noreferrer" className="text-blue-500 dark:text-blue-300 hover:underline flex items-center w-fit">GitHub Profile
+- <a href="https://github.com/wangf1" 
+      style="pointer-events: none; color: gray;"
+      target="_blank" rel="noopener noreferrer" 
+      className="text-blue-500 dark:text-blue-300 
+      hover:underline flex items-center w-fit">GitHub Profile
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
