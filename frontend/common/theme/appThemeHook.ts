@@ -15,12 +15,17 @@ type ThemeString = "light" | "dark";
  * @return An array containing the current theme and a function to update the theme.
  */
 const useAppTheme = (): ["light" | "dark", (e: ThemeString) => void] => {
-  const themeInLocalStorage = localStorage.getItem("theme");
-  //If no theme in local storage, or value is not light, then default to dark.
-  const currentTheme = themeInLocalStorage === "light" ? "light" : "dark";
-  const [theme, setTheme] = useState<ThemeString>(currentTheme);
+  // Start with dark on both server and client; localStorage only exists in the
+  // browser, so the saved theme is read after mount (avoids SSR crash and
+  // hydration mismatch).
+  const [theme, setTheme] = useState<ThemeString>("dark");
 
   useEffect(() => {
+    //If no theme in local storage, or value is not light, keep dark.
+    if (localStorage.getItem("theme") === "light") {
+      setTheme("light");
+    }
+
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = (e: MediaQueryListEvent) => {
       setTheme(e.matches ? "dark" : "light");
