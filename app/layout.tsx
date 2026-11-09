@@ -13,6 +13,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false, nocache: true },
   title: "Mark F.W.'s Portfolio",
   description:
     "This is my portfolio as a practice and showcase modern frontend development.",
