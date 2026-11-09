@@ -3,7 +3,7 @@ import { piiStrings } from "@/frontend/feature/resume/PIIData";
 import { ResumeContent } from "@/frontend/feature/resume/ResumeContent";
 
 export default function Resume() {
-  const hide = true;
+  const hide = false;
   let content = ResumeContent;
   if (hide) {
     for (const piiString of piiStrings) {

@@ -4,7 +4,7 @@ import { piiStrings } from "@/frontend/feature/resume/PIIData";
 import React from "react";
 
 const SelfIntroductionEssay: React.FC = () => {
-  const hide = true;
+  const hide = false;
   let content = CoverLetterContent;
   if (hide) {
     for (const piiString of piiStrings) {
