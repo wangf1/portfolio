@@ -40,6 +40,12 @@ export const ResumeContent = `
 
 # Work Experience
 
+### Software Engineer - TrustArc
+
+_August 2024 to Present, Canada_
+
+- **Role:** Build and maintain a privacy management platform across backend services, end-user interfaces, and administrative tools.
+
 ### Expert Software Engineer - SAP SuccessFactors
 
 _June 2019 to May 2024, Shanghai, China_

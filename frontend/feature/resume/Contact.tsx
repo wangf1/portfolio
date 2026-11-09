@@ -11,7 +11,7 @@ export default function Contact() {
       </h1>
       <ul className="list-disc pl-5 mb-6 space-y-4 text-lg">
         <li>
-          <strong>Address:</strong> Calgary, Alberta (Flexible to relocate
+          <strong>Address:</strong> Toronto, Ontario (Flexible to relocate
           within Canada)
         </li>
         <li>

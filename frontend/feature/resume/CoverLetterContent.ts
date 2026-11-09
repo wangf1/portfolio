@@ -1,9 +1,9 @@
 export const CoverLetterContent = `
 # Who Am I?
 
-My name is **Mark Wang**, currently living in **Calgary, Canada**, with permanent resident status.
+My name is **Mark Wang**, currently living in **Toronto, Canada**, with permanent resident status.
 
-With **more than 10 years** of experience as a software developer, I have built a solid foundation across various technology stacks.
+With **more than 18 years** of experience as a software developer, I have built a solid foundation across various technology stacks.
 
 I am a quick learner, always ready to embrace new technologies and advance my skills.
 
@@ -25,6 +25,6 @@ I know where I come from, why I am here, and what I should do and enjoy. I will 
 - **Explore and integrate** diverse tech stacks beyond the Java ecosystem, including TypeScript with Node.js, Python with Django, C# with .NET Core, and Ruby on Rails.
 - **Master** full-stack development with a strong emphasis on frontend frameworks like **ReactJS**.
 - **Expand** my proficiency with leading cloud platforms such as AWS and Azure.
-- **Embrace** relocation opportunities within Canada as needed.
-- As a new immigrant, I am not yet settled in my current city and lack local work experience, so I am **flexible** regarding job location and compensation.
+- **Collaborate** remotely with early-stage founders on part-time or sweat-equity projects, alongside my full-time engineering role.
+- I currently work full-time as a software engineer in Canada, so my availability for side projects is part-time (about 10–15 hours per week, Eastern time).
 `;
